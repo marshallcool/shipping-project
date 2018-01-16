@@ -1,0 +1,74 @@
+<div class="loading">
+  <mat-progress-spinner
+    class="example-margin"
+    mode="indeterminate"
+    *ngIf="loading">
+  </mat-progress-spinner>
+</div>
+<div class="form-wrapper add-credit-form-group" *ngIf="!loading">
+  <p-tabView>
+    <p-tabPanel header="Ожидает оплаты ({{invoiceUnpaid?.length || 0}})">
+      <p class="payment_history--nodata">
+        Нет данных
+      </p>
+      <table class="myorders-table" *ngIf="invoiceUnpaid">
+        <tr class="myorders-table__tr">
+          <th class="text-center message-table__head" mat-sort-header="object">объект</th>
+          <th class="text-center message-table__head" mat-sort-header="author">номер в системе</th>
+          <th class="message-table__content__date message-table__head" mat-sort-header="date">ДАТА</th>
+        </tr>
+
+        <tr class="myorders-table__tr" *ngFor="let unpaid of invoiceUnpaid; let i = index">
+          <td class="text-center message-table__content message-table__content__object"><a
+            class="message-table__content__link" href="">{{ unpaid.object }}</a></td>
+          <td class="text-center message-table__content message-table__content__author">{{ unpaid.number_in_system }}
+          </td>
+          <td class="text-center message-table__content message-table__content__author">{{ unpaid.date }}</td>
+        </tr>
+      </table>
+    </p-tabPanel>
+    <p-tabPanel header="Оплачено ({{invoicePaid?.length}})">
+      <p class="payment_history--nodata" *ngIf="!invoicePaid">
+        Нет данных
+      </p>
+      <table class="myorders-table" *ngIf="invoicePaid">
+        <tr class="myorders-table__tr">
+          <th class="text-center message-table__head" mat-sort-header="object">объект</th>
+          <th class="text-center message-table__head" mat-sort-header="author">номер в системе</th>
+          <th class="message-table__head" mat-sort-header="message">стоимость</th>
+          <th class="message-table__content__date message-table__head" mat-sort-header="date">ДАТА</th>
+        </tr>
+
+        <tr class="myorders-table__tr" *ngFor="let unpaid of invoicePaid; let i = index">
+          <td class="text-center message-table__content message-table__content__object"><a
+            class="message-table__content__link" href="">{{ unpaid.object }}</a></td>
+          <td class="text-center message-table__content message-table__content__author">{{ unpaid.number_in_system }}
+          </td>
+          <td class="text-center message-table__content message-table__content__author">{{ unpaid.amount }}</td>
+          <td class="text-center message-table__content message-table__content__author">{{ unpaid.date }}</td>
+        </tr>
+      </table>
+    </p-tabPanel>
+    <p-tabPanel header="Отмененные ({{invoiceCancel?.length}})">
+      <p class="payment_history--nodata" *ngIf="!invoiceCancel">
+        Нет данных
+      </p>
+      <table class="myorders-table" *ngIf="invoiceCancel">
+        <tr class="myorders-table__tr">
+          <th class="text-center message-table__head" mat-sort-header="object">объект</th>
+          <th class="text-center message-table__head" mat-sort-header="author">номер в системе</th>
+          <th class="message-table__content__date message-table__head" mat-sort-header="date">ДАТА</th>
+        </tr>
+
+        <tr class="myorders-table__tr" *ngFor="let unpaid of invoiceCancel; let i = index">
+          <td class="text-center message-table__content message-table__content__object"><a
+            class="message-table__content__link" href="">{{ unpaid.object }}</a></td>
+          <td class="text-center message-table__content message-table__content__author">{{ unpaid.number_in_system }}
+          </td>
+          <td class="text-center message-table__content message-table__content__author">{{ unpaid.date }}</td>
+        </tr>
+      </table>
+    </p-tabPanel>
+  </p-tabView>
+</div>
+

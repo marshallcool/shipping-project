@@ -1,0 +1,162 @@
+.search {
+  padding-right: 15px;
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  @media (max-width: 417px) {
+    margin-bottom: 25px;
+  }
+
+  &__title {
+    font-size: 16px;
+    font-family: intro, sans-serif;
+    color: #44415f;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  i {
+    color: #adadad;
+  }
+  &__input {
+    padding-left: 37px;
+    background: #efefef;
+    border: 1px solid #efefef;
+    border-radius: 10px;
+    width: 20%;
+    transition: width 0.5s ease-out 0.5s;
+    @media (max-width: 417px) {
+      width: 54%;
+    }
+    &:focus {
+      width: 100%;
+      transition: width 0.5s ease-out 0.5s;
+    }
+  }
+}
+
+img {
+  width: 20%;
+}
+
+.btn {
+  padding-bottom: 4px;
+}
+
+.packaging {
+  margin-bottom: 100px;
+
+  &-row {
+    @media (max-width: 417px) {
+      max-width: 417px !important;
+    }
+  }
+
+  &__item {
+    width: 9%;
+    line-height: .85;
+    font-size: 18px;
+    color: #494949;
+
+    &__header {
+      margin: 0;
+      font-size: 18px;
+      color: #494949;
+    }
+
+    &__obj {
+      font-size: 18px;
+      text-decoration: underline;
+      margin: 0;
+    }
+
+    &__rename {
+      font-size: 11px;
+      color: #a0a0a0;
+      font-family: intro, sans-serif;
+    }
+
+    &__option {
+      color: #323044;
+      font-size: 14px;
+      font-family: intro, sans-serif;
+    }
+
+    img {
+      width: 27px;
+    }
+    &:nth-child(2) {
+      width: 9%;
+      padding-left: 6px;
+    }
+    &:nth-child(3) {
+      width: 8%;
+    }
+    &:nth-child(4) {
+      width: 9%;
+    }
+    &:nth-child(5) {
+      width: 11%;
+    }
+    &:nth-child(6) {
+      width: 9%;
+    }
+    &:nth-child(9) {
+      width: 5%;
+    }
+    &:nth-last-child(1) {
+      width: 6%;
+    }
+  }
+
+  &-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 27px;
+    &:nth-last-child(1) {
+      margin: 0;
+    }
+
+    &__item {
+      width: 13%;
+      margin: 0;
+      font-size: 12px;
+      color: #494949;
+
+      &:nth-child(3) {
+        width: 12.6%;
+      }
+      &:nth-child(4) {
+        width: 12%;
+      }
+      &:nth-child(5) {
+        width: 12.4%;
+      }
+      &:nth-child(6) {
+        width: 15.5%;
+        padding-left: 9px;
+      }
+      &:nth-child(7) {
+        width: 14%;
+      }
+    }
+    img {
+      width: 27px;
+      margin-right: 13px;
+    }
+  }
+}
+.myorders-table__th {
+  font-size: 14px;
+  width: 7%;
+  &:nth-last-child(1) {
+    width: 5%;
+  }
+}
+.myorders-table {
+  margin: 0;
+}
+.packaging__item--date {
+  font-size: 16px;
+  line-height: 1.2;
+}

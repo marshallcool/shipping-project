@@ -1,0 +1,249 @@
+.internal-page {
+
+  &-carousel {
+    margin: 0;
+  }
+
+  &__block {
+    margin: 0 auto;
+
+    .owl-prev {
+      margin-left: -50px;
+    }
+
+    .owl-next {
+      margin-right: -50px;
+    }
+
+    .owl-nav {
+      bottom: 204px;
+    }
+
+    .specoffers-container {
+      margin-bottom: 0;
+    }
+  }
+
+  &__name {
+    font-size: 60px;
+    color: #a0a0a0;
+    text-transform: uppercase;
+    font-family: intro, sans-serif;
+    margin-top: 27px;
+    @media (max-width: 768px) {
+      font-size: 40px;
+    }
+    @media (max-width: 480px) {
+      font-size: 27px;
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    margin-top: 44px;
+    margin-bottom: 56px;
+
+    &-menu {
+      @media screen and (max-width:768px) {
+        width: 31px;
+        display: none;
+      }
+      &__mobile {
+        display: none;
+      }
+      &__link {
+        font-size: 18px;
+        font-family: open-sans-regular;
+        color: #000;
+
+        &--active {
+          color: #f76451 !important;
+        }
+
+        &--pass {
+          color: #a0a0a0;
+        }
+      }
+
+      &-title {
+        font-size: 18px;
+        font-family: intro;
+        color: #ffffff;
+        width: 100%;
+        display: flex;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        padding: 10px;
+        align-items: end;
+        padding-left: 54px;
+        @media (max-width: 768px) {
+          font-size: 17px;
+          padding: 0;
+        }
+        img {
+          padding-right: 15px;
+          margin-left: -27px;
+        }
+        &__data {
+          background: #ff6656;
+        }
+
+        &__finance {
+          background: #44415f;
+        }
+
+        &__setting {
+          background: #a0a0a0;
+        }
+      }
+
+      &__list {
+        padding: 17px 60px;
+        background: #faf9f9;
+        border-radius: 10px;
+        border: 1px solid #faf9f9;
+        box-shadow: 0px 7px 35px -2px #ccc;
+        margin-bottom: 22px;
+      }
+
+      &__item {
+        padding-bottom: 26px;
+
+        &:nth-last-child(1) {
+          padding-bottom: 0;
+        }
+      }
+    }
+
+    &-content {
+      flex: 1.5;
+      margin-left: 77px;
+      @media screen and (max-width:768px) {
+        flex: unset;
+        margin-left: 0;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.p-active{
+  font-size: 20px;
+  justify-content: center;
+}
+
+.strip{
+  width: 16.6667%;
+  height: 267px;
+  float: left;
+  display: block;
+  text-align: center;
+  padding-top: 20%;
+}
+
+.strip-hidden{
+  position: absolute;
+  margin-left:-100%;
+  transition: all 1s ease;
+}
+
+.strip-active{
+  z-index: 99;
+  position: absolute;
+  right: 0;
+  width:100%;
+  text-align:center;
+  height: 100%;
+  border-radius: 0 !important;
+  top: 0;
+  .internal-page__wrap-menu__mobile {
+    display: block;
+  }
+  p {
+    transform: none !important;
+  }
+
+}
+
+.strip:hover{
+  cursor:pointer;
+}
+.strip {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 28px;
+  p {
+    transform: rotate(90deg);
+    color: #ffffff;
+    letter-spacing: 10px;
+  }
+}
+.strip .strip-active {
+  padding-top: 6% !important;
+}
+#mobile-menu{
+  height: 100%;
+  width: 35%;
+  overflow: hidden;
+  flex-direction: column;
+  margin-left: -15px;
+  display: none;
+  @media screen and (max-width:768px) {
+    display: flex;
+  }
+}
+#desctop-menu {
+  @media screen and (max-width:768px) {
+    display: none;
+  }
+}
+#data{
+  background: #ff6656;
+}
+
+#finance{
+  background: #44415f;
+}
+
+#setting{
+  background: #a0a0a0;
+}
+.container--mobile {
+  @media (max-width: 768px) {
+    max-width: 100% !important;
+  }
+}
+.block-close {
+  display: none;
+  &-active {
+    display: flex;
+    justify-content: flex-end;
+    i {
+      font-size: 54px;
+      color: #ffffff;
+    }
+  }
+}
+.material-input {
+  padding: 0 !important;
+}
+.form-group {
+  @media (max-width: 400px) {
+    width: 84%;
+  }
+}
+.form-wrapper {
+  @media (max-width: 400px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.btn {
+  @media (max-width: 400px) {
+    padding: 10px 3px;
+    width: 100%;
+    font-size: 11px;
+  }
+}

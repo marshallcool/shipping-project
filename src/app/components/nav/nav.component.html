@@ -1,0 +1,184 @@
+<div class="header" [ngClass]="{'header__user': !user}">
+  <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse hidden-md-up">
+    <div class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarsExampleDefault"
+         aria-controls="navbarsExampleDefault"
+         aria-expanded="false" aria-label="Toggle navigation" id="nav-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="navbar-brand-top">
+      <a class="navbar-brand" href="#">
+        <img src="./assets/images/mobile/logo-white.png" alt="Logo" class="header-logo">
+      </a>
+      <!--<a *ngIf="user" href="#" [routerLink]="['profile']" class="header-menu__link">-->
+        <!--<mat-icon svgIcon="fiol-profile"></mat-icon>-->
+      <!--</a>-->
+    </div>
+  </nav>
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item nav-item__lang">
+        <a (click)="changeLanguage('ru')" class="text-btn text-btn--active">ru</a>
+      </li>
+      <li class="nav-item nav-item__lang">
+        <a (click)="changeLanguage('en')" class="text-btn">en</a>
+      </li>
+      <li class="nav-item nav-item__lang">
+        <a (click)="changeLanguage('ar')" class="text-btn">ar</a>
+      </li>
+      <li class="nav-item" *ngIf="user">
+        <a href="#" [routerLink]="['profile']" routerLinkActive="nav-link--active" class="nav-link">Профиль</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link nav-link--active">Услуги</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">тарифы</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">доставка</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">помощь</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">магазины</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">форум</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link nav-link--more">еще</a>
+      </li>
+      <form action="" class="form-inline my-2 my-md-0">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <input type="text" class="form-control nav-form-control mr-sm-0">
+      </form>
+    </ul>
+  </div>
+  <ul *ngIf="user" id="headerMenu" class="header-menu__list">
+    <li class="header-menu__item">
+      <a href="#" routerLinkActive="header-menu__link--active" [routerLink]="['orders']" class="header-menu__link">
+        <mat-icon svgIcon="fiol-korobka"></mat-icon>
+        <p class="navbar-mobile__link">{{ 'header.1' | translate }}</p>
+      </a>
+    </li>
+    <li class="header-menu__item">
+      <a href="#"  routerLinkActive="header-menu__link--active" class="header-menu__link" [routerLink]="['profile/history']">
+        <mat-icon svgIcon="fiol-balance"></mat-icon>
+        <p class="navbar-mobile__link">{{ 'header.3' | translate }} $0.00</p>
+      </a>
+    </li>
+    <li class="header-menu__item">
+      <a (click)="openModal()" class="header-menu__link" data-toggle="modal" data-target=".bd-example-modal-sm">
+        <mat-icon svgIcon="flag" class="icon-flag"></mat-icon>
+        <p class="navbar-mobile__link">{{ 'header.4' | translate }}</p>
+      </a>
+    </li>
+  </ul>
+  <div class="container">
+    <div class="row">
+      <div class="col header__container">
+        <div class="header-menu" fxLayout="row" fxLayoutAlign="center end">
+          <a fxFlex="20" fxFlex.lt-lg="23" href="#" class="header-menu__logo" [routerLink]="['/']">
+            <img src="./assets/images/logo.svg" alt="Logo" class="header-logo">
+          </a>
+          <ul class="header-lang hidden">
+            <li class="nav-item nav-item__lang">
+              <a (click)="changeLanguage('ru')" class="text-btn text-btn--active">ru</a>
+            </li>
+            <li class="nav-item nav-item__lang">
+              <a (click)="changeLanguage('en')" class="text-btn">en</a>
+            </li>
+            <li class="nav-item nav-item__lang">
+              <a (click)="changeLanguage('ar')" class="text-btn">ar</a>
+            </li>
+          </ul>
+          <ul class="header-menu__list" [ngClass]="{'header-menu__list--flex': !user}">
+            <li class="header-menu__item" *ngIf="user">
+              <a href="#" [routerLink]="['orders']" routerLinkActive="header-menu__link--active"
+                 class="header-menu__link">
+                <mat-icon svgIcon="fiol-korobka"></mat-icon>
+                {{ 'header.1' | translate }}
+              </a>
+            </li>
+            <li class="header-menu__item" *ngIf="user">
+              <a href="#" [routerLink]="['profile']" routerLinkActive="header-menu__link--active"
+                 class="header-menu__link hidden-sm-down">
+                <mat-icon svgIcon="fiol-profile"></mat-icon>
+                {{ 'header.2' | translate }}
+              </a>
+            </li>
+            <li class="header-menu__item" *ngIf="!user">
+              <a href="#" [routerLink]="['login']" routerLinkActive="header-menu__link--active"
+                 class="header-menu__link hidden-sm-down">
+                <mat-icon svgIcon="fiol-profile"></mat-icon>
+                Войти
+              </a>
+            </li>
+            <li class="header-menu__item" *ngIf="user">
+              <a href="#" class="header-menu__link" [routerLink]="['profile/history']">
+                <mat-icon svgIcon="fiol-balance"></mat-icon>
+                {{ 'header.3' | translate }} $0.00
+              </a>
+            </li>
+            <li class="header-menu__item" *ngIf="user">
+              <a href="#" class="header-menu__link" [routerLink]="['messages']" routerLinkActive="header-menu__link--active">
+                <mat-icon svgIcon="fiol-balance"></mat-icon>
+                Сообщения
+              </a>
+            </li>
+            <li class="header-menu__item hidden-md-up">
+              <a href="#" class="header-menu__link" data-toggle="modal" data-target=".bd-example-modal-sm">
+                <div class="header-icon__adress"></div>
+                {{ 'header.4' | translate }}
+              </a>
+            </li>
+            <li class="header-menu__item" *ngIf="user">
+              <a href="#" class="header-menu__link hidden-sm-down" (click)="logOut()">
+                <mat-icon svgIcon="fiol-exit"></mat-icon>
+                Выход
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="navbar navbar-inverse bg-inverse navbar-toggleable-md nav">
+  <div class="container">
+    <div id="navbarsExampleContainer">
+      <ul class="navbar-nav navbar-nav-desc mr-auto">
+        <li class="nav-item">
+          <a href="#" class="nav-link">{{ 'nav.1' | translate }}</a>
+        </li>
+        <!-- nav-link--active -->
+        <li class="nav-item">
+          <a href="#" class="nav-link">{{ 'nav.2' | translate }}</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">{{ 'nav.3' | translate }}</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">{{ 'nav.4' | translate }}</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">{{ 'nav.5' | translate }}</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">{{ 'nav.6' | translate }}</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link nav-link--more">{{ 'nav.7' | translate }}</a>
+        </li>
+        <form action="" class="form-inline my-2 my-md-0">
+          <i class="fa fa-search" aria-hidden="true"></i>
+          <input type="text" class="form-control nav-form-control mr-sm-0">
+        </form>
+      </ul>
+    </div>
+  </div>
+</div>

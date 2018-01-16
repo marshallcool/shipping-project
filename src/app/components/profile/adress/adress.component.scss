@@ -1,0 +1,31 @@
+.adress-delivery {
+
+  &__btn {
+    font-size: 18px;
+    padding: 13px 13px;
+  }
+}
+.address {
+
+  &-wr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-card {
+    margin-top: 15px;
+  }
+}
+.fa {
+  font-size: 20px;
+  margin-left: 3px;
+  color: #f76451;
+  margin-bottom: 24px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.disable {
+  opacity: .2;
+}

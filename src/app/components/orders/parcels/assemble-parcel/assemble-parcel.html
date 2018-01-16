@@ -1,0 +1,433 @@
+
+<div class="order-parcel">
+  <div class="container">
+    <div class="row parcel-row">
+      <div class="col-md-12">
+        <div class="parcel-help">
+          <p class="parcel-help__title">
+            как собрать посылку
+          </p>
+          <p class="parcel-help__text">
+            Cамый популярный вид доставки товаров из Америки, который отличается оптимальным соотношением стоимости и сроков транспортировки
+            (жители России, Казахстана, Украины и большинства других стран смогут получить свою покупку уже через 10-16 дней). Ради удоти и сроков транспортировки
+            (жители России, Казахстана, Украины и большинства других стран смогут получить свою покупку уже через 10-16 дней). Ради удо
+          </p>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <p class="search__title">выбор посылки</p>
+      </div>
+      <div class="search">
+        <i aria-hidden="true" class="fa fa-search"></i>
+        <input placeholder="Поиск посылки" [(ngModel)]="parcel" class="search__input" type="text">
+      </div>
+      <div class="col-md-12" *ngIf="parcels.length">
+        <div class="change-all">
+          <mat-checkbox (click)="onSendAll()"></mat-checkbox> Выбрать все
+        </div>
+        <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+        <mat-expansion-panel class="hide" *ngFor="let it of parcels | filter : parcel; let i = index">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-checkbox (click)="onSendAdd(i, it)" [checked]="checkAll"></mat-checkbox>
+              <img src="../../../../../assets/images/orders/preview.png"
+                   class="myorders-table__td__prev__img"
+                   alt=""
+              >
+              {{it.name}}
+              <a href="#">
+                <img src="../../../../../assets/images/orders/mail.png" class="mail" alt="">
+              </a>
+              <a (click)="addParcel(it)" class="btn parcel__btn">в посылку</a>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div fxLayout="column" fxLayoutAlign="end center">
+            <div class="parcel-item" fxLayout="row" fxLayoutAlign="space-between none">
+              <p class="parcel-item__title" fxFlex="46%">Магазин</p>
+              <p class="parcel-item__text" fxFlex="30%">ТЕST</p>
+            </div>
+            <div class="parcel-item" fxLayout="row" fxLayoutAlign="space-between none">
+              <p class="parcel-item__title" fxFlex="46%">Цена</p>
+              <p class="parcel-item__text" fxFlex="30%">$00</p>
+            </div>
+            <div class="parcel-item" fxLayout="row" fxLayoutAlign="space-between none">
+              <p class="parcel-item__title" fxFlex="46%">Вес</p>
+              <p class="parcel-item__text" fxFlex="30%">10lbs</p>
+            </div>
+            <div class="parcel-item" fxLayout="row" fxLayoutAlign="space-between none">
+              <p class="parcel-item__title" fxFlex="46%">Дата</p>
+              <p class="parcel-item__text" fxFlex="30%">10.10.1992</p>
+            </div>
+            <div class="parcel-item parcel-item__line"></div>
+            <div class="parcel-item" fxLayout="row" fxLayoutAlign="space-between none">
+              <p class="parcel-item__title" fxFlex="46%">Название товара</p>
+              <p class="parcel-item__text" fxFlex="30%">Leavaes mfefgf</p>
+            </div>
+            <div class="parcel-item" fxLayout="row" fxLayoutAlign="space-between none">
+              <p class="parcel-item__title" fxFlex="46%">Трек-Номер</p>
+              <p class="parcel-item__text" fxFlex="30%">Трек-Номер</p>
+            </div>
+            <div class="parcel-item" fxLayout="row" fxLayoutAlign="space-between none">
+              <p class="parcel-item__title" fxFlex="46%">Номер заказа</p>
+              <p class="parcel-item__text" fxFlex="30%">Номер заказа</p>
+            </div>
+          </div>
+        </mat-expansion-panel>
+        <table matSort (matSortChange)="sortData($event)" class="myorders-table">
+          <tr class="myorders-table__tr">
+            <th class="text-center myorders-table__th"><mat-checkbox (click)="onSendAllAdd()"></mat-checkbox></th>
+            <th class="text-center myorders-table__th"></th>
+            <th class="text-center myorders-table__th" mat-sort-header="object">{{ 'TableParcel.1' | translate }}</th>
+            <th class="text-center myorders-table__th" mat-sort-header="name">{{ 'TableParcel.3' | translate }}</th>
+            <th class="text-center myorders-table__th" mat-sort-header="price">цена</th>
+            <th class="text-center myorders-table__th" mat-sort-header="weight">вес</th>
+            <th class="text-center myorders-table__th" mat-sort-header="data">дата</th>
+            <th class="text-center myorders-table__th"></th>
+            <th class="text-center myorders-table__th" mat-sort-header="pay"></th>
+          </tr>
+
+          <tr class="myorders-table__tr" *ngFor="let it of parcels | filter : parcel; let i = index">
+            <td class="text-center myorders-table__td myorders-table__td__prev">
+              <mat-checkbox (click)="onSendAdd(i, it)" [checked]="checkAll"></mat-checkbox>
+            </td>
+            <td class="text-center myorders-table__td myorders-table__td__prev">
+              <img src="../../../../../assets/images/orders/preview.png" class="myorders-table__td__prev__img" alt="">
+            </td>
+            <td class="text-center myorders-table__td">
+              <a href="#" class="myorders-table__link">{{it.tracking_number}}</a>
+            </td>
+            <td class="text-center myorders-table__td">{{it.shop_title}}</td>
+            <td class="text-center myorders-table__td">{{it?.value}}{{it?.total_price}}</td>
+            <td class="text-center myorders-table__td">{{it?.weight}}{{it?.weight_oz}}</td>
+            <td class="text-center myorders-table__td">{{it.created}}</td>
+            <td class="text-center myorders-table__td">
+              <a href="#" [routerLink]="['/messages/message', it.id]">
+                <img src="../../../../../assets/images/orders/mail.png" class="mail" alt="">
+              </a>
+            </td>
+            <td class="text-center myorders-table__td myorders-table__td__pay">
+              <button mat-button class="btn parcel__btn" (click)="addParcel(it)">добавить в посылку</button>
+            </td>
+          </tr>
+        </table>
+        <div class="parcel-add" fxLayoutAlign="end center">
+          <button mat-button class="btn parcel__disable" [ngClass]="{'nodisable':disableBtnAdd}" (click)="addAllParcel()">Добавить все</button>
+        </div>
+      </div>
+      <div class="col-md-12" *ngIf="contentsOfParcel.length > 0">
+        <div class="form-parcel">
+          <div class="form-parcel-name">
+            <p class="form-parcel-name__title">
+              формирование посылки pr193984
+            </p>
+            <input type="text" class="form-parcel-name__input" [formControl]="parcelForm.controls['title']">
+          </div>
+          <div class="change-all">
+            <mat-checkbox (click)="onSendAll()"></mat-checkbox> Выбрать все
+          </div>
+          <mat-expansion-panel class="hide" *ngFor="let it of contentsOfParcel | filter : parcel; let i = index">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-checkbox (click)="onSendRemove(i, it)" [checked]="checkAll"></mat-checkbox>
+                <img src="../../../../../assets/images/orders/preview.png"
+                     class="myorders-table__td__prev__img"
+                     alt=""
+                >
+                {{it.name}}
+                <a href="#">
+                  <img src="../../../../../assets/images/orders/mail.png" class="mail" alt="">
+                </a>
+                <a (click)="removeParcel(it)" class="btn parcel__btn">из посылки</a>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            {{it.price}}
+          </mat-expansion-panel>
+          <table matSort (matSortChange)="sortData($event)" class="myorders-table">
+            <tr class="myorders-table__tr">
+              <th class="text-center myorders-table__th"><mat-checkbox (click)="onSendAllRemove()"></mat-checkbox></th>
+              <th class="text-center myorders-table__th"></th>
+              <th class="text-center myorders-table__th" mat-sort-header="object">{{ 'TableParcel.1' | translate }}</th>
+              <th class="text-center myorders-table__th" mat-sort-header="name">{{ 'TableParcel.3' | translate }}</th>
+              <th class="text-center myorders-table__th" mat-sort-header="price">цена</th>
+              <th class="text-center myorders-table__th" mat-sort-header="weight">вес</th>
+              <th class="text-center myorders-table__th" mat-sort-header="data">дата</th>
+              <th class="text-center myorders-table__th"></th>
+              <th class="text-center myorders-table__th" mat-sort-header="pay"></th>
+            </tr>
+
+            <tr class="myorders-table__tr" *ngFor="let it of contentsOfParcel | filter : parcel; let i = index">
+              <td class="text-center myorders-table__td myorders-table__td__prev">
+                <mat-checkbox (click)="onSendRemove(i, it)" [checked]="checkAllRemove"></mat-checkbox>
+              </td>
+              <td class="text-center myorders-table__td myorders-table__td__prev">
+                <img src="../../../../../assets/images/orders/preview.png"
+                     class="myorders-table__td__prev__img"
+                     alt=""
+                >
+              </td>
+              <td class="text-center myorders-table__td">
+                <a href="#" class="myorders-table__link">{{it.tracking_number}}</a>
+              </td>
+              <td class="text-center myorders-table__td">{{it.shop_title}}</td>
+              <td class="text-center myorders-table__td">{{it?.value}}{{it?.total_price}}</td>
+              <td class="text-center myorders-table__td">{{it?.weight}}{{it?.weight_oz}}</td>
+              <td class="text-center myorders-table__td">{{it.created}}</td>
+              <td class="text-center myorders-table__td">
+                <a href="#">
+                  <img src="../../../../../assets/images/orders/mail.png" class="mail" alt="">
+                </a>
+              </td>
+              <td class="text-center myorders-table__td myorders-table__td__pay">
+                <button mat-button class="btn parcel__btn" (click)="removeParcel(it)">убрать из посылки</button>
+              </td>
+            </tr>
+          </table>
+          <div class="parcel-add">
+            <div class="parcel-add-info">
+              <p class="parcel-add-info__text">Вес посылки: <span class="orange">{{ weight *  0.028349523125 | number:'1.1-4'}}кг</span> </p>
+              <p class="parcel-add-info__text">Стоимость вещей: <span class="orange">${{ price }}</span> </p>
+            </div>
+            <button mat-button class="btn parcel__disable" [class.nodisable]="disableBtn" (click)="removeAllParcel()">удалить все</button>
+          </div>
+          <div class="form-parcel-delivery"
+               fxLayout="row"
+               fxLayoutAlign="space-between baseline"
+          >
+            <div fxFlex="45%" fxFlex.sm="100%" fxFlex.xs="100%" class="form-parcel-delivery-content">
+              <div class="form-parcel-delivery-content-wr">
+                <label class="form-parcel-delivery-content__title">адрес</label>
+                <span class="form-parcel-delivery-content__desc">Выберите адрес доставки из списка или  добавить новый</span>
+                <mat-form-field *ngIf="!showAddAddress">
+                  <mat-select [(value)]="selectAddress" (change)="onChange($event)">
+                    <mat-option *ngFor="let address of addresses | async" [value]="address">
+                      {{ address.country }}, {{ address.city }} {{ address.address }} {{ address.house }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <a class="form-parcel-delivery-content-wr__add" *ngIf="!showAddAddress" (click)="showAddAddress = !showAddAddress">+ Добавить новый адрес </a>
+                <a class="form-parcel-delivery-content-wr__add" *ngIf="showAddAddress" (click)="showAddAddress = !showAddAddress">Вернуться к выбору адреса</a>
+                <div *ngIf="showAddAddress">
+                  <div class="form-group">
+                    <label
+                      class="material-input"
+                      [ngClass]="{'hovered':addAddress.controls['first_name'].valid}"
+                    >
+                      <span>Имя<span class="dark-orange">*</span></span>
+                      <input
+                        class="input-control"
+                        type="text"
+                        [formControl]="addAddress.controls['first_name']"
+                      />
+                    </label>
+                    <label *ngIf="addAddress.controls['first_name'].invalid && addAddress.controls['first_name'].touched" class="data-error">Обязательное поле</label>
+                  </div>
+                  <div class="form-group">
+                    <label
+                      class="material-input"
+                      [ngClass]="{'hovered':addAddress.controls['last_name'].valid}"
+                    >
+                      <span>Фамилия<span class="dark-orange">*</span></span>
+                      <input
+                        class="input-control"
+                        type="text"
+                        [formControl]="addAddress.controls['last_name']"
+                      />
+                    </label>
+                    <label *ngIf="addAddress.controls['last_name'].invalid && addAddress.controls['last_name'].touched" class="data-error">Обязательное поле</label>
+                  </div>
+                  <div class="form-group">
+                    <label class="add-adress-label">
+                      <p>Страна<span class="dark-orange">*</span></p>
+                    </label>
+                    <mat-form-field class="add-adress-country">
+                      <input matInput aria-label="State" [matAutocomplete]="auto" [formControl]="countryCtrl">
+                      <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let country of reactiveCountry | async" [value]="country.title">
+                          <span>{{ country.title }}</span>
+                        </mat-option>
+                      </mat-autocomplete>
+                    </mat-form-field>
+                  </div>
+                  <div class="form-group">
+                    <label
+                      class="material-input"
+                      [ngClass]="{'hovered':addAddress.controls['city'].valid}"
+                    >
+                      <span>Город<span class="dark-orange">*</span></span>
+                      <input
+                        class="input-control"
+                        type="text"
+                        [formControl]="addAddress.controls['city']"
+                      />
+                    </label>
+                    <label *ngIf="addAddress.controls['city'].invalid && addAddress.controls['city'].touched" class="data-error">Обязательное поле</label>
+                  </div>
+                  <div class="form-group">
+                    <label
+                      class="material-input"
+                      [ngClass]="{'hovered':addAddress.controls['zip'].valid}"
+                    >
+                      <span>Почтовый индекс<span class="dark-orange">*</span></span>
+                      <input
+                        class="input-control"
+                        type="text"
+                        [formControl]="addAddress.controls['zip']"
+                      />
+                    </label>
+                    <mat-error *ngIf="addAddress.controls['zip'].invalid && addAddress.controls['zip'].touched">Обязательное поле</mat-error>
+                  </div>
+                  <div class="form-group">
+                    <label
+                      class="material-input"
+                      [ngClass]="{'hovered':addAddress.controls['address'].valid}"
+                    >
+                      <span>Адрес<span class="dark-orange">*</span></span>
+                      <input
+                        class="input-control"
+                        type="text"
+                        [formControl]="addAddress.controls['address']"
+                      />
+                    </label>
+                    <mat-error *ngIf="addAddress.controls['address'].invalid && addAddress.controls['address'].touched">Обязательное поле</mat-error>
+                  </div>
+                  <button mat-button class="btn form-parcel-delivery-content__toogle" (click)="sendAddress()" type="submit">Добавить</button>
+                </div>
+              </div>
+              <div class="form-parcel-delivery-content-wr" *ngIf="displayCalculator">
+                <label class="form-parcel-delivery-content__title">вид доствки</label>
+                <p *ngIf="!deliverys?.length">Доставок нет</p>
+                <div class="loading">
+                  <mat-progress-spinner
+                    class="example-margin"
+                    mode="indeterminate"
+                    *ngIf="loadingCalculator">
+                  </mat-progress-spinner>
+                </div>
+                <mat-radio-group [(ngModel)]="selectDelivery">
+                  <mat-radio-button *ngFor="let delivery of deliverys" [value]="delivery">
+                    {{ delivery.service_name }} - {{ delivery.price }}$ (Расчетная стоимость)
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="form-parcel-delivery-content-wr">
+                <label class="form-parcel-delivery-content__title">страховка</label>
+                <span class="form-parcel-delivery-content__desc">Укажите страховую сумму. Эта сумма не указывается в декларации</span>
+                <input [formControl]="parcelForm.controls['unsurance_value']" />
+                <p class="parcel-add-info__text">Стоимость страховки: <span class="orange">12кг</span> </p>
+              </div>
+              <div class="form-parcel-delivery-content-wr">
+                <label class="form-parcel-delivery-content__title form-parcel-delivery-content__title--orange">декларация</label>
+                <span class="form-parcel-delivery-content__desc">К этому шагу  можно вернуться после упаковки посылки</span>
+                <button mat-button class="btn form-parcel-delivery-content__toogle">заполнить декларацию</button>
+              </div>
+            </div>
+            <div fxFlex="45%" class="form-parcel-delivery-info form-parcel-delivery-info--mobile">
+              <div class="form-parcel-delivery-info-container">
+                <p class="form-parcel-delivery-info__title">
+                  USPS Priority International
+                </p>
+                <p class="form-parcel-delivery-info__content">
+                  Cамый популярный вид доставки товаров из Америки, который отличается оптимальным соотношением стоимости и сроков тра
+                  нспортировки (жители России, Казахстана, Украины и большинства других стран смогут получить свою покупку уже через 10-16 дней). Ради удо
+                </p>
+              </div>
+              <div class="form-parcel-delivery-info-container">
+                <p class="form-parcel-delivery-info__title">
+                  USPS Priority International
+                </p>
+                <p class="form-parcel-delivery-info__content">
+                  Практикует более продолжительные
+                  сроки, к примеру, доставка из США в Россию, Украину, Казахстан или Беларусь составляет 25-35 дней. При этом, получать заказ нужно будет в ближайшем к вам почпосылок возможно на главной странице нашего сайта.
+                </p>
+              </div>
+              <div class="form-parcel-delivery-info-container">
+                <p class="form-parcel-delivery-info__title">
+                  Dnipro Air
+                </p>
+                <p class="form-parcel-delivery-info__content">
+                  Наиболее удобный способ пересылки для жителей Украины и Белар,5 кг. Максимальный вес посылки составляет 60 фунтов (27 кг.) для Украины и 44 фунта (20 кг.) для Беларуси и России.
+                </p>
+              </div>
+              <div class="form-parcel-delivery-info-container">
+                <p class="form-parcel-delivery-info__title">
+                  Dnipro Sea
+                </p>
+                <p class="form-parcel-delivery-info__content">
+                  Используется для доставки посылок морем в Украину и Россию. Срок доставки: 30-45 дней для Украины и 40-60 дней для России. Минимальный оплачиваемый вес - 10 фунтов. Максимальный вес посылки - 60 фунтов (27 кг.) для Украины и 44 фунта (20 кг.) для России.
+                </p>
+                <p class="form-parcel-delivery-info__content">
+                  Используется для доставки посылок морем в Украину и Россию. Срок доставки: 30-45 дней для Украины и 40-60 дней для России. Минималь
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="form-parcel-delivery-content-wr">
+            <label class="form-parcel-delivery-content__title">дополнительные услуги </label>
+            <div class="form-parcel-delivery-content-wr__service" fxLayoutWrap>
+              <div class="services">
+                <mat-checkbox>Срочная упаковказа 2 часа-10$</mat-checkbox>
+                <mat-checkbox>Сохранить оригинальную упакоку (Бесплатно)</mat-checkbox>
+                <mat-checkbox>Удалить обувные коробки (Бесплатно)</mat-checkbox>
+                <mat-checkbox>Удалить инвойсы (Бесплатно)</mat-checkbox>
+              </div>
+              <div class="services">
+                <mat-checkbox>Сделать фото содержимого -$3</mat-checkbox>
+                <mat-checkbox>Проверить покупку</mat-checkbox>
+                <mat-checkbox>Удалить обувные коробки (Бесплатно)</mat-checkbox>
+                <mat-checkbox>Удалить инвойсы (Бесплатно)</mat-checkbox>
+              </div>
+              <div class="services">
+                <mat-checkbox>Удалить обувные коробки (Бесплатно)</mat-checkbox>
+                <mat-checkbox>Удалить инвойсы (Бесплатно)</mat-checkbox>
+                <mat-checkbox>Удалить инвойсы (Бесплатно)</mat-checkbox>
+                <mat-checkbox>Удалить инвойсы (Бесплатно)</mat-checkbox>
+              </div>
+            </div>
+          </div>
+          <div class="form-parcel-delivery"
+               fxLayout="row"
+               fxLayout.xs="column"
+               fxLayoutAlign="space-between baseline"
+          >
+            <div fxFlex="55%" fxFlexOrder.xs="5" class="form-parcel-delivery-content">
+              <div class="form-parcel-delivery-content-total">
+                <p class="form-parcel-delivery-content-total__title">
+                  примерная стоимость доставки: $121
+                </p>
+                <p class="form-parcel-delivery-content-total__text">USPS SLDK: <span class="orange">$100</span> </p>
+                <p class="form-parcel-delivery-content-total__text">Страховка на: <span class="orange">$100</span> </p>
+                <p class="form-parcel-delivery-content-total__text">Срочная упаковка <span class="orange">$100</span> </p>
+                <button mat-button (click)="shippingOnPacking()" class="btn">отправка на упаковку</button>
+              </div>
+            </div>
+            <div fxFlex="45%" fxFlexOrder.xs="4" class="form-parcel-delivery-info">
+              <div class="form-parcel-gds">
+                <p class="form-parcel-gds__title">
+                  БЕСПЛАТНЫЕ ЖУРНАЛЫ  В ПОСЫЛКУ
+                </p>
+                <div class="form-parcel-gds-journal">
+                  <div class="form-parcel-gds-journal__plus">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </div>
+                  <img style="width: 100%;" src="../../../../../assets/images/orders/journal.png" alt="">
+                </div>
+              </div>
+              <div class="form-parcel-gds">
+                <p class="form-parcel-gds__title">
+                  ДОПОЛНИТЕЛЬНЫЕ ТОВАРЫ ИЗ США В ПОСЫЛКУ
+                </p>
+                <div class="form-parcel-gds-journal">
+                  <div class="form-parcel-gds-journal__plus">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </div>
+                  <img style="width: 100%;" src="../../../../../assets/images/orders/journal.png" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

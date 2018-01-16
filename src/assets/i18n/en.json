@@ -1,0 +1,110 @@
+{
+    "MyOrders": "My orders",
+    "SelfPurchase": "Self purchase",
+    "FullSupportOrders": "Full support orders",
+    "ExpectReceipt": "Expect receipt",
+    "InStock": "in stock",
+    "Packed": "packed",
+    "ExpectPayment": "Expect payment",
+    "SentTo": "Sent to ",
+    "Tracking": "Tracking",
+    "NameOfShop": "Name of shop",
+    "Price": "Price",
+    "Comment": "Comment",
+    "AddNewPost": "Add a new post",
+    "GetYourPersonalAdress": "",
+    "GetPersonalAdress": {
+        "1": "GET YOUR PERSONAL ADDRESS IN THE USA",
+        "2": "Enter your ",
+        "3": "real name ",
+        "4": "in English:",
+        "5": "We provide you 2 personal addresses in the USA",
+        "6": "Use them to make purchases in online stores in America.",
+        "7": "get"
+    },
+    "TableParcel": {
+        "1": "Object",
+        "2": "Tracking",
+        "3": "score",
+        "4": "price",
+        "5": "created"
+    },
+    "calculator": {
+        "1": "COST OF DELIVERY",
+        "2": "country",
+        "3": "INSURANCE",
+        "4": "WEIGHT OF DETAILS",
+        "5": "Calculate",
+        "6": "ExpressFromUS.com as an intermediary carries out the purchase and delivery of parcels from the US Internet shops with all kinds of goods ordered by our customers: clothes, shoes, appliances, children's goods, cosmetics, interior items, sports equipment, bulky goods and even cars.",
+        "7": "Discussion at the forum",
+        "8": "Estimated delivery time:",
+        "9": {
+            "1": "Delivery options: ",
+            "2": "courier",
+            "3": " | pickup"
+        },
+        "10": "Estimated delivery time: ",
+        "11": "Estimated delivery time: "
+    },
+    "day": "days",
+    "footer": {
+        "home": "home",
+        "forum": "forum",
+        "help": "help",
+        "guarantees": "guarantees",
+        "rates": "rates",
+        "1":"Delivery",
+        "2":"About us",
+        "3":"affiliate program",
+        "4":"Ways of delivery",
+        "5":"To the organizers of the joint venture",
+        "6":"Time in stock",
+        "7":"connect with us"
+    },
+    "header": {
+        "1": "My orders",
+        "2": "Profile",
+        "3": "Balance",
+        "4": "Address of the USA"
+    },
+    "nav": {
+        "1": "The services",
+        "2": "rates",
+        "3": "delivery",
+        "4": "help",
+        "5": "the shops",
+        "6": "forum",
+        "7": "yet"
+    },
+    "OrderReceipt": {
+        "ManualInput":"Manual input",
+        "InsertCartCompletely":"Insert cart completely",
+        "LinkToProduct": "Link to product",
+        "ProductName":"Product name",
+        "Count":"Count",
+        "Articul":"Articul",
+        "Price":"Price",
+        "PromoCode":"PromoCode",
+        "Sale":"Sale",
+        "Comment":"Comment",
+        "Upload":"Upload",
+        "Help": "Add links to the products you need. Editing an order is available until the moment of payment. After the receipt of payment, the operator proceeds to buy out the order."
+    },
+    "OrderPay": {
+        "OrderName":"Order name",
+        "LinkToTheProduct":"Link to the product",
+        "Name":"name",
+        "Count":"count",
+        "Articul":"articul",
+        "Price":"price",
+        "PromoCode":"promocode",
+        "Sale":"sale",
+        "Totals":"totals",
+        "DeliveryByUSA":"Delivery by USA:",
+        "Order":"order",
+        "PayNow":"pay now",
+        "Save":"save",
+        "Basket":"Basket",
+        "ViewContent":"View content"
+    }
+}

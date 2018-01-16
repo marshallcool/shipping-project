@@ -1,0 +1,27 @@
+.material-input {
+  height: 49px !important;
+}
+.form-group {
+  flex: 0 1 87%;
+}
+.tracking-form {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.btn {
+  padding: 28px;
+  padding-top: 17px;
+  padding-bottom: 12px;
+  border-radius: 13px !important;
+}
+.material-input span {
+  font-size: 12px;
+  font-family: open-sans-light, sans-serif;
+}
+.material-input.filled .input-control, .material-input.hovered .input-control {
+  padding-top: 18px;
+}
+.material-input.hovered > span {
+  top: 0px;
+}

@@ -1,0 +1,52 @@
+.contact {
+
+  &-form {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    flex-wrap: wrap;
+
+    &__input {
+      flex: 0 1 45%;
+    }
+
+    &__text {
+      margin-top: 25px;
+      flex: 0 1 100%;
+    }
+
+    &__btn {
+      margin-top: 25px;
+      padding: 15px 43px;
+      border-radius: 6px;
+      padding-top: 18px;
+    }
+
+    &__block {
+      span.select2-selection.select2-selection--single {
+        border: 2px solid #c4cace;
+        height: 50px !important;
+      }
+    }
+
+    &__contact {
+      font-family: open-sans-regular, sans-serif;
+      color: #494949;
+      font-size: 18px;
+      IMG {
+        margin-right: 15px;
+      }
+    }
+  }
+}
+.affiliate_program__title {
+  font-size: 3.75rem;
+  color: #a0a0a0;
+  font-family: intro, sans-serif;
+  margin-top: 35px;
+}
+span.select2-selection.select2-selection--single {
+  border: 2px solid #bdc3c7 !important;
+  border-radius: 10px;
+  height: 45px !important;
+}

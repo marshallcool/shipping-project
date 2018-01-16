@@ -1,0 +1,20 @@
+.balance {
+  align-items: baseline;
+  &__title {
+    font-family: intro, sans-serif;
+    color: #a0a0a0;
+    margin: 0;
+    margin-right: 14px;
+    font-size: 18px;
+  }
+  &__value {
+    color: #fe6657;
+    margin: 0;
+    font-size: 18px;
+  }
+  &__text {
+    color: #a0a0a0;
+    margin-top: 25px;
+    font-size: 18px;
+  }
+}

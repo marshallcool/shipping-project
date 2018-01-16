@@ -1,0 +1,45 @@
+.edit-avatar {
+  display: flex;
+  justify-content: space-between;
+
+  &__btn--close {
+    background: #fff;
+    border: 3px solid #f76451;
+    color: #f76451 !important;
+
+    &:hover {
+      color: #fff;
+      background: #fa8779;
+    }
+  }
+}
+
+.file_upload {
+  position: relative;
+  overflow: hidden;
+  background: #f76451;
+  border: 1px solid #f76451;
+  line-height: 1;
+  text-align: center;
+  border-radius: 11px;
+  color: #fff;
+  padding: 10px 9px;
+  width: 100%;
+  font-size: 16px;
+  font-family: intro;
+}
+
+.file_upload input[type=file] {
+  position: absolute;
+  top: 0; right: 0;
+  font-size: 200px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  cursor: pointer;
+}
+.avatar {
+  &__crop {
+    border-radius: 50%;
+    margin-bottom: 25px;
+  }
+}

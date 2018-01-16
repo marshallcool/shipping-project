@@ -1,0 +1,78 @@
+.btn {
+    overflow: hidden;
+    cursor: pointer;
+    outline: none;
+    border-radius: 5px !important;
+    font-family: intro;
+    line-height: 18px;
+    background-color: $dark-orange;
+    color: #fff !important;
+    text-transform: uppercase;
+    &:hover {
+      background: $bright-orange;
+      color: #ffffff !important;
+    }
+    &:focus {
+      color: #ffffff !important;
+    }
+    &:active {}
+  }
+
+  .btn-primary {
+    color: #fff;
+    background-color: #2ecc71;
+    border-color: #27ae60;
+    &:hover {
+      background-color: #2EB868;
+    }
+    &:active {
+      background-color: #2BAD62;
+    }
+  }
+
+  .btn-primary-outline {
+    border-color: #2ecc71;
+    background-color: #fff;
+    color: #2ecc71;
+    &:hover {
+      background-color: #fff;
+      border-color: #2EB868;
+      color: #2EB868;
+    }
+    &:active {
+      background-color: #fff;
+      border-color: #2BAD62;
+      color: #2BAD62;
+    }
+  }
+
+  .text-btn {
+    font-family: intro;
+    border-radius: 24px;
+    border: 1px solid $primary-dark;
+    color: $primary-dark;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding-top: 4px;
+    padding-bottom: 3px;
+    padding-left: 2px;
+    padding-right: 3px;
+    &:hover {
+      text-decoration: none;
+      color: $primary-color;
+    }
+    &--active {
+      color: $primary-color;
+    }
+  }
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: #ff6555;
+}
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #ff6555;
+}
+
+.mat-button-focus-overlay {
+  background-color: transparent !important;
+}

@@ -1,0 +1,30 @@
+<div class="test">
+  <p-chart type="line" [data]="data" [options]="options"></p-chart>
+</div>
+
+<table>
+  <tr class="myorders-table__tr">
+    <th class="text-center myorders-table__th">Дата</th>
+    <th class="text-center myorders-table__th">Сумма</th>
+    <th class="text-center myorders-table__th">пользователь</th>
+    <th class="text-center myorders-table__th">источник</th>
+  </tr>
+
+  <tr
+    *ngFor="let item of testData; let i = index"
+    class="myorders-table__tr"
+  >
+    <td class="text-center myorders-table__td">
+      {{ item.date }}
+    </td>
+    <td class="text-center myorders-table__td">
+      {{ item.value }}
+    </td>
+    <td class="text-center myorders-table__td">
+      {{ item.user_name }}
+    </td>
+    <td class="text-center myorders-table__td">
+      rood.com
+    </td>
+  </tr>
+</table>

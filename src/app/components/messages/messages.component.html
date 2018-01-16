@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="message__title">Сообщения</h2>
+    </div>
+    <div class="col-md-12 message-menu">
+      <ul class="message-menu__list" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutWrap.lt-md>
+        <li class="message-menu__list__item">
+          <a routerLinkActive="message-menu__list__item__link--active" [routerLink]="['all']" class="message-menu__list__item__link" href="#">Все</a>
+        </li>
+        <li class="message-menu__list__item">
+          <a routerLinkActive="message-menu__list__item__link--active" [routerLink]="['forwarding']" class="message-menu__list__item__link" href="#">самостоятельные покупки</a>
+        </li>
+        <li class="message-menu__list__item">
+          <a routerLinkActive="message-menu__list__item__link--active" [routerLink]="['order']" class="message-menu__list__item__link" href="#">заказы полного сопровождения</a>
+        </li>
+        <li class="message-menu__list__item">
+          <a routerLinkActive="message-menu__list__item__link--active" [routerLink]="['parcels']" class="message-menu__list__item__link" href="#">посылки</a>
+        </li>
+        <li class="message-menu__list__item">
+          <a routerLinkActive="message-menu__list__item__link--active" [routerLink]="['bills']" class="message-menu__list__item__link" href="#">счета</a>
+        </li>
+        <li class="message-menu__list__item">
+          <a routerLinkActive="message-menu__list__item__link--active" [routerLink]="['private']" class="message-menu__list__item__link" href="#">личные сообщения</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+<app-footer></app-footer>

@@ -1,0 +1,111 @@
+.score {
+
+  &__link {
+    color: #000;
+    border-bottom: 1px dashed;
+    margin-right: 20px;
+
+    &--active {
+      color: #ff6656;
+    }
+  }
+}
+ul.ui-tabview-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
+  border: none !important;
+}
+.add-credit-form-group {
+  ul.ui-tabview-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
+    border: none !important;
+  }
+}
+.message {
+
+  &-table {
+
+    &__content {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      font-size: 14px;
+
+      &__author {
+        color: #494949;
+        font-family: open-sans-regular, sans-serif;
+      }
+
+      &__date {
+        text-align: left;
+        padding-right: 24px;
+      }
+
+      &--unread {
+        width: 41%;
+        display: block;
+        background: #bcbcbc;
+        color: #ffffff;
+        border-radius: 20px;
+        margin: 0 auto !important;
+      }
+
+      &__object {
+        text-decoration: underline;
+      }
+
+      &__link {
+        color: #000000;
+        &:hover {
+          text-decoration: underline !important;
+        }
+        &--unread {
+          color: #494949;
+          font-family: open-sans-bold, sans-serif;
+          font-size: 18px;
+        }
+      }
+    }
+
+    &__head {
+      font-size: 14px;
+      color: #a0a0a0;
+      font-family: intro, sans-serif;
+      width: 24%;
+      text-align: center;
+
+    }
+  }
+
+  &__title {
+    font-size: 60px;
+    color: #a1a1a1;
+    font-family: intro;
+    margin-top: 37px;
+    margin-bottom: 24px;
+  }
+
+  &-menu {
+
+    &__list {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      background: #efefef;
+      border-radius: 10px;
+
+      &__item {
+        font-size: 16px;
+        font-family: intro, sans-serif;
+        @media (max-width: 992px) {
+          font-size: 12px;
+        }
+
+        &__link {
+          color: #a0a0a0;
+          &--active {
+            color: #f76451;
+          }
+        }
+      }
+    }
+  }
+}
+.mat-sort-header-sorted {
+  color: #e26657 !important;
+}

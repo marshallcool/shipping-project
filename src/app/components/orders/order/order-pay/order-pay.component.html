@@ -1,0 +1,219 @@
+<div class="orders-pay">
+  <div class="container">
+    <div class="row">
+        <div class="orders-pay-item col-md-12" *ngFor="let order of orders; let k = index">
+          <label class="orders-pay-item__title">{{ 'OrderPay.OrderName' | translate }}</label>
+          <input class="orders-pay-item__input" type="text">
+          <div class="orders-pay-form">
+            <div class="orders-pay-form-info">
+              <div class="orders-pay-list" *ngFor="let ord of order; let i = index">
+                {{ i }}
+                <div class="orders-pay-form-info__item">
+                  <label class="orders-pay-item__title">{{ 'OrderPay.LinkToTheProduct' | translate }}</label>
+                  <input class="orders-pay-item__input" [ngModel]="ord.link" type="text">
+                </div>
+                <div class="orders-pay-form-info__item">
+                  <label class="orders-pay-item__title">{{ 'OrderPay.Name' | translate }}</label>
+                  <input class="orders-pay-item__input" [ngModel]="ord.title" type="text">
+                </div>
+                <div class="orders-pay-form-info__item">
+                  <label class="orders-pay-item__title">{{ 'OrderPay.Count' | translate }}</label>
+                  <input class="orders-pay-item__input" [ngModel]="ord.quantity" type="text">
+                </div>
+                <div class="orders-pay-form-info__item">
+                  <label class="orders-pay-item__title">{{ 'OrderPay.Articul' | translate }}</label>
+                  <input class="orders-pay-item__input" [ngModel]="ord.article" type="text">
+                </div>
+                <div class="orders-pay-form-info__item">
+                  <label class="orders-pay-item__title">{{ 'OrderPay.Price' | translate }}</label>
+                  <input class="orders-pay-item__input" [ngModel]="ord.price" type="text">
+                </div>
+                <div class="orders-pay-form-info__item">
+                  <label class="orders-pay-item__title">{{ 'OrderPay.PromoCode' | translate }}</label>
+                  <input class="orders-pay-item__input" [ngModel]="ord.code" type="text">
+                </div>
+                <div class="orders-pay-form-info__item">
+                  <label class="orders-pay-item__title">{{ 'OrderPay.Sale' | translate }}</label>
+                  <input class="orders-pay-item__input" [ngModel]="ord.sale" type="text">
+                </div>
+                <div class="orders-pay-form-info__item">
+                  <label class="orders-pay-item__title">{{ 'OrderPay.Totals' | translate }}</label>
+                  <input class="orders-pay-item__input" [ngModel]="ord.total" type="text">
+                </div>
+                <div class="orders-pay-form-info__item hidden-sm-down">
+                  <label class="orders-pay-item__title"></label>
+                  <a class="orders-pay-item__icon" (click)="deleteItem(order, ord, k)"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--<p *ngFor="let ord of order">-->
+            <!--{{ ord.title }}-->
+          <!--</p>-->
+        </div>
+      <!--<div class="orders-pay-item col-md-12" *ngFor="let order of orders; let i = index">-->
+        <!--<label class="orders-pay-item__title">{{ 'OrderPay.OrderName' | translate }}</label>-->
+        <!--<input class="orders-pay-item__input" type="text">-->
+        <!--<div class="orders-pay-form">-->
+          <!--&lt;!&ndash;<p class="orders-pay-form__title">{{ order[0].link }}</p>&ndash;&gt;-->
+          <!--<div class="orders-pay-form-info">-->
+            <!--<div class="orders-pay-list" *ngIf="order.length === 1">-->
+              <!--<div class="orders-pay-form-info__item">-->
+                <!--<label class="orders-pay-item__title">{{ 'OrderPay.LinkToTheProduct' | translate }}</label>-->
+                <!--<input class="orders-pay-item__input" [ngModel]="order[0].link" type="text">-->
+              <!--</div>-->
+              <!--<div class="orders-pay-form-info__item">-->
+                <!--<label class="orders-pay-item__title">{{ 'OrderPay.Name' | translate }}</label>-->
+                <!--<input class="orders-pay-item__input" [ngModel]="order[0].title" type="text">-->
+              <!--</div>-->
+              <!--<div class="orders-pay-form-info__item">-->
+                <!--<label class="orders-pay-item__title">{{ 'OrderPay.Count' | translate }}</label>-->
+                <!--<input class="orders-pay-item__input" [ngModel]="order[0].quantity" type="text">-->
+              <!--</div>-->
+              <!--<div class="orders-pay-form-info__item">-->
+                <!--<label class="orders-pay-item__title">{{ 'OrderPay.Articul' | translate }}</label>-->
+                <!--<input class="orders-pay-item__input" [ngModel]="order[0].article" type="text">-->
+              <!--</div>-->
+              <!--<div class="orders-pay-form-info__item">-->
+                <!--<label class="orders-pay-item__title">{{ 'OrderPay.Price' | translate }}</label>-->
+                <!--<input class="orders-pay-item__input" [ngModel]="order[0].price" type="text">-->
+              <!--</div>-->
+              <!--<div class="orders-pay-form-info__item">-->
+                <!--<label class="orders-pay-item__title">{{ 'OrderPay.PromoCode' | translate }}</label>-->
+                <!--<input class="orders-pay-item__input" [ngModel]="order[0].code" type="text">-->
+              <!--</div>-->
+              <!--<div class="orders-pay-form-info__item">-->
+                <!--<label class="orders-pay-item__title">{{ 'OrderPay.Sale' | translate }}</label>-->
+                <!--<input class="orders-pay-item__input" [ngModel]="order[0].sale" type="text">-->
+              <!--</div>-->
+              <!--<div class="orders-pay-form-info__item">-->
+                <!--<label class="orders-pay-item__title">{{ 'OrderPay.Totals' | translate }}</label>-->
+                <!--<input class="orders-pay-item__input" [ngModel]="order[0].total" type="text">-->
+              <!--</div>-->
+              <!--<div class="orders-pay-form-info__item hidden-sm-down">-->
+                <!--<label class="orders-pay-item__title"></label>-->
+                <!--<a class="orders-pay-item__icon" (click)="deleteItem(order[0])"></a>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div *ngIf="order.length > 1">-->
+              <!--<div class="orders-pay-list" *ngFor="let ord of order">-->
+                <!--<div class="orders-pay-form-info__item">-->
+                  <!--<label class="orders-pay-item__title">{{ 'OrderPay.LinkToTheProduct' | translate }}</label>-->
+                  <!--<input class="orders-pay-item__input" [(ngModel)]="ord.link" type="text">-->
+                <!--</div>-->
+                <!--<div class="orders-pay-form-info__item">-->
+                  <!--<label class="orders-pay-item__title">{{ 'OrderPay.Name' | translate }}</label>-->
+                  <!--<input class="orders-pay-item__input" [(ngModel)]="ord.title" type="text">-->
+                <!--</div>-->
+                <!--<div class="orders-pay-form-info__item">-->
+                  <!--<label class="orders-pay-item__title">{{ 'OrderPay.Count' | translate }}</label>-->
+                  <!--<input class="orders-pay-item__input" [(ngModel)]="ord.quantity" type="text">-->
+                <!--</div>-->
+                <!--<div class="orders-pay-form-info__item">-->
+                  <!--<label class="orders-pay-item__title">{{ 'OrderPay.Articul' | translate }}</label>-->
+                  <!--<input class="orders-pay-item__input" [(ngModel)]="ord.article" type="text">-->
+                <!--</div>-->
+                <!--<div class="orders-pay-form-info__item">-->
+                  <!--<label class="orders-pay-item__title">{{ 'OrderPay.Price' | translate }}</label>-->
+                  <!--<input class="orders-pay-item__input" [(ngModel)]="ord.price" type="text">-->
+                <!--</div>-->
+                <!--<div class="orders-pay-form-info__item">-->
+                  <!--<label class="orders-pay-item__title">{{ 'OrderPay.PromoCode' | translate }}</label>-->
+                  <!--<input class="orders-pay-item__input" [(ngModel)]="ord.code" type="text">-->
+                <!--</div>-->
+                <!--<div class="orders-pay-form-info__item">-->
+                  <!--<label class="orders-pay-item__title">{{ 'OrderPay.Sale' | translate }}</label>-->
+                  <!--<input class="orders-pay-item__input" [(ngModel)]="ord.sale" type="text">-->
+                <!--</div>-->
+                <!--<div class="orders-pay-form-info__item">-->
+                  <!--<label class="orders-pay-item__title">{{ 'OrderPay.Totals' | translate }}</label>-->
+                  <!--<input class="orders-pay-item__input" [(ngModel)]="ord.total" type="text">-->
+                <!--</div>-->
+                <!--<div class="orders-pay-form-info__item hidden-sm-down">-->
+                  <!--<label class="orders-pay-item__title"></label>-->
+                  <!--<a class="orders-pay-item__icon" (click)="deleteItem(ord)"></a>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="orders-pay-wr">-->
+            <!--<div class="orders-pay-wr__l">-->
+              <!--<div class="orders-pay-wr-item">-->
+                <!--<label class="orders-pay-form__title">{{ 'OrderPay.DeliveryByUSA' | translate }}</label>-->
+                <!--<input class="orders-pay-item__input orders-pay-item__input&#45;&#45;delivery" type="text">-->
+              <!--</div>-->
+              <!--<div class="orders-pay-wr-item">-->
+                <!--<label class="orders-pay-item__title light-blue">{{ 'OrderPay.Order' | translate }}</label>-->
+                <!--<input class="orders-pay-item__input" type="text">-->
+              <!--</div>-->
+              <!--<div class="orders-pay-wr-item">-->
+                <!--<label class="orders-pay-item__title dark-orange">{{ 'OrderPay.Totals' | translate }}</label>-->
+                <!--<input class="orders-pay-item__input" type="text">-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="orders-pay-wr__r">-->
+              <!--<button mat-button class="btn" (click)="payOrder(order)">{{ 'OrderPay.PayNow' | translate }} $12</button>-->
+              <!--<button mat-button class="btn  orders-pay-wr-btn__save" (click)="saveOrder()">{{ 'OrderPay.Save' | translate }}</button>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="orders-pay-item col-md-12">-->
+        <!--<label class="orders-pay-item__title">{{ 'OrderPay.OrderName' | translate }}</label>-->
+        <!--<input class="orders-pay-item__input" type="text">-->
+        <!--<div class="orders-pay-form">-->
+          <!--<p class="orders-pay-form__title">My100brands</p>-->
+          <!--<div class="orders-pay-form-info">-->
+            <!--<div class="orders-pay-list">-->
+              <!--<div class="orders-pay-form-info__item">-->
+                <!--<label class="orders-pay-item__title">{{ 'OrderPay.Basket' | translate }}</label>-->
+                <!--<a href="#" class="orders-pay-item__link">{{ 'OrderPay.ViewContent' | translate }}</a>-->
+              <!--</div>-->
+              <!--<div class="orders-pay-form-info__item">-->
+                <!--<label class="orders-pay-item__title">{{ 'OrderPay.Count' | translate }}</label>-->
+                <!--<input class="orders-pay-item__input" type="text">-->
+              <!--</div>-->
+              <!--<div class="orders-pay-form-info__item">-->
+                <!--<label class="orders-pay-item__title">{{ 'OrderPay.Price' | translate }}</label>-->
+                <!--<input class="orders-pay-item__input" type="text">-->
+              <!--</div>-->
+              <!--<div class="orders-pay-form-info__item">-->
+                <!--<label class="orders-pay-item__title">{{ 'OrderPay.PromoCode' | translate }}</label>-->
+                <!--<input class="orders-pay-item__input" type="text">-->
+              <!--</div>-->
+              <!--<div class="orders-pay-form-info__item">-->
+                <!--<label class="orders-pay-item__title">{{ 'OrderPay.Sale' | translate }}</label>-->
+                <!--<input class="orders-pay-item__input" type="text">-->
+              <!--</div>-->
+              <!--<div class="orders-pay-form-info__item">-->
+                <!--<label class="orders-pay-item__title">{{ 'OrderPay.Totals' | translate }}</label>-->
+                <!--<input class="orders-pay-item__input" type="text">-->
+              <!--</div>-->
+              <!--<div class="orders-pay-form-info__item hidden-sm-down">-->
+                <!--<label class="orders-pay-item__title"></label>-->
+                <!--<a href="#" class="orders-pay-item__icon"></a>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="orders-pay-wr">-->
+          <!--<div class="orders-pay-wr__l">-->
+            <!--<div class="orders-pay-wr-item">-->
+              <!--<label class="orders-pay-form__title">{{ 'OrderPay.DeliveryByUSA' | translate }}</label>-->
+              <!--<input class="orders-pay-item__input orders-pay-item__input&#45;&#45;delivery" type="text">-->
+            <!--</div>-->
+            <!--<div class="orders-pay-wr-item">-->
+              <!--<label class="orders-pay-item__title light-blue">{{ 'OrderPay.Order' | translate }}</label>-->
+              <!--<input class="orders-pay-item__input" type="text">-->
+            <!--</div>-->
+            <!--<div class="orders-pay-wr-item">-->
+              <!--<label class="orders-pay-item__title dark-orange">{{ 'OrderPay.Totals' | translate }}</label>-->
+              <!--<input class="orders-pay-item__input" type="text">-->
+            <!--</div>-->
+          <!--</div>-->
+
+        <!--</div>-->
+      <!--</div>-->
+    </div>
+  </div>
+</div>

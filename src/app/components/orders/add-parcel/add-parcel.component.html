@@ -1,0 +1,81 @@
+<div class="loading">
+  <mat-progress-spinner
+    class="example-margin"
+    mode="indeterminate"
+    *ngIf="loading">
+  </mat-progress-spinner>
+</div>
+<form class="form-wrapper" [formGroup]="newParcel">
+  <div class="form-group">
+    <label
+      class="material-input"
+      [ngClass]="{'hovered':newParcel.controls['tracking_number'].valid}"
+    >
+      <span>{{ 'Tracking' | translate }}<span class="dark-orange" >*</span></span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="newParcel.controls['tracking_number']"
+      />
+    </label>
+    <label
+      *ngIf="newParcel.controls['tracking_number'].invalid && newParcel.controls['tracking_number'].touched"
+      class="data-error">Обязательное поле
+    </label>
+  </div>
+  <div class="form-group">
+    <label
+      class="material-input"
+      [ngClass]="{'hovered':newParcel.controls['shop_title'].valid}"
+    >
+      <span>{{ 'NameOfShop' | translate }}<span class="dark-orange" >*</span></span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="newParcel.controls['shop_title']"
+      />
+    </label>
+    <label
+      *ngIf="newParcel.controls['shop_title'].invalid && newParcel.controls['shop_title'].touched"
+      class="data-error">Обязательное поле
+    </label>
+  </div>
+  <div class="form-group">
+    <label
+      class="material-input"
+      [ngClass]="{'hovered':newParcel.controls['value'].valid}"
+    >
+      <span>{{ 'Price' | translate }}<span class="dark-orange" >*</span></span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="newParcel.controls['value']"
+      />
+    </label>
+    <label class="data-error" *ngIf="newParcel.controls.value.errors?.number">Только цифры</label>
+    <label
+      *ngIf="newParcel.controls['value'].invalid && newParcel.controls['value'].touched"
+      class="data-error">Обязательное поле
+    </label>
+  </div>
+  <div class="form-group">
+    <label
+      class="material-input"
+      [ngClass]="{'hovered':newParcel.controls['title'].valid}"
+    >
+      <span>Название товара<span class="dark-orange" >*</span></span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="newParcel.controls['title']"
+      />
+    </label>
+    <label
+      *ngIf="newParcel.controls['title'].invalid && newParcel.controls['title'].touched"
+      class="data-error">Обязательное поле
+    </label>
+  </div>
+  <div class="form-group hidden-md-down">
+    <button mat-button type="submit" class="btn form-wrapper__btn" (click)="addParcel()">{{ 'AddNewPost' | translate }}</button>
+  </div>
+</form>

@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>отслеживание посылки</h1>
+    </div>
+    <div class="col-md-12">
+      <app-tracking-form (addTracking)="onTrack($event)"></app-tracking-form>
+    </div>
+    <div class="col-md-12">
+      <app-tracking-list [trackingList]="trackingData"></app-tracking-list>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

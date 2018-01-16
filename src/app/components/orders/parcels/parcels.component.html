@@ -1,0 +1,23 @@
+<div class="container hide">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="myorders-menu__bot">
+        <ul class="myorders-menu__list">
+          <li class="myorders-menu__item">
+            <a routerLinkActive="myorders-menu__link--active" [routerLink]="['assemble-parcel']" class="myorders-menu__link">собрать посылку</a>
+          </li>
+          <li class="myorders-menu__item">
+            <a routerLinkActive="myorders-menu__link--active" [routerLink]="['packaging']" class="myorders-menu__link">упаковка</a>
+          </li>
+          <li class="myorders-menu__item">
+            <a routerLinkActive="myorders-menu__link--active" [routerLink]="['packed']" class="myorders-menu__link">упакованы</a>
+          </li>
+          <li class="myorders-menu__item">
+            <a routerLinkActive="myorders-menu__link--active" [routerLink]="['sent']" class="myorders-menu__link">отправлены</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

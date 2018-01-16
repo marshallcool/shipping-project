@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="message__title">Сообщения</h2>
+    </div>
+    <div class="col-md-12 message-navigation__back">
+      <a (click)="backBtn()" class="message-navigation__back__toogle"><i class="fa fa-chevron-left" aria-hidden="true"></i> Назад в сообщения</a>
+    </div>
+    <div class="col-md-12 message-page__container">
+      <div class="message-page-head">
+        <p class="message-page-head__object">{{ objectId }}</p>
+      </div>
+      <div class="message-page-content" *ngFor="let message of messages">
+        <div class="message-page-content-partner" fxLayout="row" >
+          <div fxFlex="17%" class="message-page-content-partner__info">
+            <p class="message-page-content-partner__info__name">{{ message.author }}</p>
+            <p class="message-page-content-partner__info__date">{{ message.date }}</p>
+          </div>
+          <div fxFlex="36%" class="message-page-content-partner__message" [innerHTML]="message.message | safeHtml">
+           <!--<p class="message-page-content-partner__message__text">-->
+             <!--{{ message.message }}-->
+           <!--</p>-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 message-page-input">
+      <app-message-page-input [elementId]="'my-editor-id'"></app-message-page-input>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

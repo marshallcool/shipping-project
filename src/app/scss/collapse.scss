@@ -1,0 +1,31 @@
+.packaging {
+  .mat-expansion-panel-body {
+    padding: 0 13px 16px;
+  }
+  .mat-expansion-indicator {
+    order: -1;
+    margin-right: 15px;
+  }
+  .mat-expansion-panel {
+    border-bottom: 1px solid #ccc;
+  }
+  .mat-expansion-panel-header {
+    padding-right: 0;
+  }
+  .mat-expansion-indicator::after {
+    color: rgb(247, 100, 81);
+  }
+}
+
+.order-parcel {
+  .mat-expansion-indicator {
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+  @media (max-width: 417px) {
+    .mat-expansion-panel-header-title {
+      margin-right: 0 !important;
+    }
+  }
+}

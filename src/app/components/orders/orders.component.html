@@ -1,0 +1,80 @@
+<section class="s-myorders">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 hidden-sm-down">
+        <h2 class="myorders-title">{{ 'MyOrders' | translate }}</h2>
+      </div>
+      <div class="col-6 mobile-hide">
+        <div class="dropdown hidden-md-up">
+          <a routerLinkActive="myorders-menu__title--active"
+             class="myorders-menu__title dropdown-toggle"
+             id="dropdownMenuLink"
+             data-toggle="dropdown"
+             aria-haspopup="true"
+             aria-expanded="false">
+            {{ 'SelfPurchase' | translate }}
+            <i class="fa fa-question-circle-o myorders-menu__icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="только для международной"></i>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <ul class="myorders-menu__list">
+              <li class="myorders-menu__item">
+                <a routerLinkActive="myorders-menu__link--active" [routerLink]="['forwarding/add']" class="myorders-menu__link">{{ 'ExpectReceipt' | translate }}</a>
+              </li>
+              <li class="myorders-menu__item">
+                <a routerLinkActive="myorders-menu__link--active" [routerLink]="['forwarding/expect-receipt']" class="myorders-menu__link">{{ 'Packed' | translate }}</a>
+              </li>
+              <li class="myorders-menu__item">
+                <a routerLinkActive="myorders-menu__link--active" [routerLink]="['forwarding/in-stock']" class="myorders-menu__link">{{ 'InStock' | translate }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 mobile-hide">
+        <div class="dropdown hidden-md-up">
+          <a routerLinkActive="myorders-menu__title--active"
+             class="myorders-menu__title
+             dropdown-toggle"
+             href="#"
+             id="dropdownMenuLink2"
+             data-toggle="dropdown"
+             aria-haspopup="true"
+             aria-expanded="false">
+            {{ 'FullSupportOrders' | translate }}
+            <i class="fa fa-question-circle-o myorders-menu__icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="только для международной"></i>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
+            <ul class="myorders-menu__list">
+              <li class="myorders-menu__item">
+                <a routerLinkActive="myorders-menu__link--active" [routerLink]="['order/add']" class="myorders-menu__link">Добавить заказ</a>
+              </li>
+              <li class="myorders-menu__item">
+                <a routerLinkActive="myorders-menu__link--active" [routerLink]="['order/expect-payment']" class="myorders-menu__link">ожидают оплаты</a>
+              </li>
+              <li class="myorders-menu__item">
+                <a routerLinkActive="myorders-menu__link--active" [routerLink]="['order/sended']" class="myorders-menu__link">выкупаются</a>
+              </li>
+              <li class="myorders-menu__item">
+                <a routerLinkActive="myorders-menu__link--active" [routerLink]="['order/expect-receipt']" class="myorders-menu__link">ожидают поступления</a>
+              </li>
+              <li class="myorders-menu__item">
+                <a routerLinkActive="myorders-menu__link--active" [routerLink]="['forwarding/in-stock']" class="myorders-menu__link">на складе<span class="num-orders">100</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 hide">
+        <div class="myorders-menu">
+          <div class="myorders-menu__top">
+            <a routerLinkActive="myorders-menu__title--active" [routerLink]="['forwarding']" class="myorders-menu__title">{{ 'SelfPurchase' | translate }} <i class="fa fa-question-circle-o myorders-menu__icon" aria-hidden="true" matTooltip="Tooltip!" matTooltipPosition="above"></i></a>
+            <a routerLinkActive="myorders-menu__title--active" [routerLink]="['order']" class="myorders-menu__title">{{ 'FullSupportOrders' | translate }} <i class="fa fa-question-circle-o myorders-menu__icon" aria-hidden="true" matTooltip="только для международной отправки" matTooltipPosition="above"></i></a>
+            <a routerLinkActive="myorders-menu__title--active" [routerLink]="['parcels']" class="myorders-menu__title">посылки <i class="fa fa-question-circle-o myorders-menu__icon" aria-hidden="true" matTooltip="Tooltip!" matTooltipPosition="above"></i></a>
+          </div>
+        </div>
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

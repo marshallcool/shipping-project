@@ -1,0 +1,8 @@
+.hide {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+:host {
+  width: 100%;
+}

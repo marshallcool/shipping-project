@@ -1,0 +1,27 @@
+.complete {
+  &__icon-wrapper {
+    width: 20vh;
+    height: 20vh;
+    line-height: 100px;
+    border: .3vh solid #00b0ff;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  &__icon {
+    font-size: 6vh;
+    width: auto;
+    height: auto;
+    color: #00b0ff;
+  }
+
+  &__title {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 22px;
+  }
+
+  &__desc {
+    text-align: center;
+  }
+
+}

@@ -1,0 +1,15 @@
+<div class="myorders-adress">
+  <h2 class="myorders-adress__title text-center dark-blue">для шоппинга в америке ПОЛУЧИТЕ ЛИЧНЫЙ АДРЕС В США</h2>
+  <p class="myorders-adress__desc text-center">Введите свое<span class="dark-blue"> настоящее имя </span>латиницей:
+  </p>
+  <div class="myorders-adress__form" fxLayoutAlign="space-around center" fxLayout="row" fxLayoutWrap>
+    <input fxFlex="30%" type="text" class="myorders-adress__input" [formControl]="personalAddress.controls['first_name']">
+    <input fxFlex="30%" type="text" class="myorders-adress__input" [formControl]="personalAddress.controls['last_name']">
+    <input fxFlex="30%" type="text" class="myorders-adress__input" [formControl]="personalAddress.controls['phone']">
+    <button fxFlex="30%" mat-button type="submit" (click)="sendAddress()" class="btn myorders-adress__btn">Получить</button>
+  </div>
+  <p class="myorders-adress__feature text-center dark-blue">Мы предоставляем вам 2 личных адреса в США.Используйте их
+    для оформления покупок в интернет-магазинах
+    Америки.
+  </p>
+</div>

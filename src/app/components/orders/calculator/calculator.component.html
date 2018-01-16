@@ -1,0 +1,113 @@
+<section class="s-delivery">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="text-center delivery__title">{{ 'calculator.1' | translate }}</h1>
+      </div>
+      <form action="" class="calculator__form">
+        <div class="col-md-4 calculator-item col-sm-12">
+          <div class="form__field delivery-country">
+            <label class="form__label">{{ 'calculator.2' | translate }}</label>
+            <select2 [data]="country" class="select-one" (valueChanged)="changedData($event)"></select2>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="form__field delivery-city">
+            <label class="form__label">{{ 'calculator.3' | translate }}</label>
+            <input type="text" [formControl]="calculateForm.controls['insurance']">
+          </div>
+        </div>
+        <div class="delivery-parcels calculator-item__weight col-md-2 col-sm-5 col-5">
+          <div class="form__field delivery-parcels">
+            <label class="form__label">{{ 'calculator.4' | translate }}</label>
+            <input type="text" [formControl]="calculateForm.controls['weight']">
+            <span class="calculator__lbs">lbs</span>
+          </div>
+        </div>
+        <div class="col-md-2 col-sm-5 calculator-item__btn col-5">
+          <button type="submit" mat-button class="btn delivery-btn" (click)="handle()">{{ 'calculator.5' | translate }}</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+  <div class="del">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 show-mobile">
+          <div class="delivery-info__link delivery-info__link--active" *ngFor="let del of delivery">
+            <div class="delivery-info-mobile">
+              <img src="./assets/images/mobile/logo-usps.png" alt="" class="">
+              <p class="info-content__link">{{ del.service_name }}</p>
+              <a href="#" class="delivery-info__icon delivery-info__icon--active"></a>
+            </div>
+            <p class="delivery-info__title text-center">Итог: <span class="text-bold">{{serviceDelivery?.total_price}}</span> <a href="#">подробнее</a></p>
+            <div class="info-content-img">
+              <img src="./assets/images/mobile/fly.svg" alt="" class="info-content-img--air">
+              <p class="info-content-img__text">Срок доставки: от 8-15 дней</p>
+            </div>
+            <div class="info-content-img">
+              <img src="./assets/images/mobile/weig.svg" alt="" class="info-content-img--weig">
+              <p class="info-content-img__text">Масса груза: от 1-30 кг</p>
+            </div>
+          </div>
+        </div>
+        <div class="delivery-info hidden-mobile">
+          <div class="col-sm-3 delivery-info__menu">
+            <a (click)="toogleActive(i, del)" [ngClass]="{'delivery-info__link--active':selectedIdx == i}" class="delivery-info__link" *ngFor="let del of delivery; let i = index">
+              <img src="./assets/images/delivery/logo1.png" alt="" class="">
+              <p class="delivery-info__title text-center">{{ del.service_name }}</p>
+              <p class="delivery-info__time text-center">{{ del.days }} дней</p>
+              <p class="delivery-info__price text-center">${{ del.price }}</p>
+            </a>
+          </div>
+          <div class="col-sm-9 delivery-info__content hidden-sm-down" [ngClass]="{'disable':loading}">
+            <div class="loading loading-calculator">
+              <mat-progress-spinner
+                class="example-margin"
+                mode="indeterminate"
+                *ngIf="loading">
+              </mat-progress-spinner>
+            </div>
+            <div class="info-content__data">
+              <span class="text-bold calculator__info">
+                USPS Priority - cамый популярный вид доставки товаров из Америки. Отличается оптимальным соотношением стоимости и сроков транспортировки - 8-15 дней.
+                Курьер привезёт посылку по указанному адресу. Максимальный вес посылки не должен превышать 70 фунтов, предельно допустимые габариты не могут быть больше
+                60 дюймов (152 см.) длина + обхват = 108 дюймов (274 см.)
+              </span>
+              <div *ngIf="delivery">
+                <p title="Текст подсказки." class="tooltip2">Вес посылки______________________________________________________________________ {{serviceDelivery?.max_weight}}
+                </p>
+                <p title="Текст подсказки." class="tooltip2">Прием входящих посылок______________________________________________________ 0</p>
+                <p title="Текст подсказки." class="tooltip2">Объединение посылок__________________________________________________________ 0</p>
+                <p title="Текст подсказки." class="tooltip2">Хранение на складе (90 дней) __________________________________________________ 0</p>
+                <p title="Текст подсказки." class="tooltip2">Упаковочные материалы________________________________________________________ от 6$</p>
+                <p title="Текст подсказки." class="tooltip2">Стоимость доставки______________________________________________________________ ${{serviceDelivery?.price}}</p>
+                <p title="Текст подсказки." class="tooltip2">Комиссия платежной системы___________________________________________________ ${{serviceDelivery?.insurance}}</p>
+                <p class="text-orange"><span class="text-bold text-orange">Предварительная стоимость доставки</span> ___________________________________
+                <span class="text-bold text-orange">{{serviceDelivery?.total_price}}</span></p>
+              </div>
+            </div>
+            <div class="info-content__feature" *ngIf="delivery">
+              <div class="info-content__feature-img">
+                <div class="info-content-img info-content-img--air">
+                  <p class="info-content-img__text">{{ 'calculator.8' | translate }}<br>{{serviceDelivery?.days}} {{ 'day' | translate }}</p>
+                </div>
+                <div class="info-content-img info-content-img--car">
+                  <p class="info-content-img__text">{{ 'calculator.9.1' | translate }}<br><span>{{ 'calculator.9.2' | translate }}</span>{{ 'calculator.9.3' | translate }}</p>
+                </div>
+                <div class="info-content-img info-content-img--weig">
+                  <p class="info-content-img__text">{{ 'calculator.10' | translate }}<br>от {{serviceDelivery?.min_weight}} до {{serviceDelivery?.max_weight}}</p>
+                </div>
+                <div class="info-content-img info-content-img--customs">
+                  <p class="info-content-img__text">{{ 'calculator.11' | translate }}<br>8-15 {{ 'day' | translate }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

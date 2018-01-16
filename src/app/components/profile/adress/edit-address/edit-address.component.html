@@ -1,0 +1,185 @@
+<div class="loading">
+  <mat-progress-spinner
+    class="example-margin"
+    mode="indeterminate"
+    *ngIf="loading">
+  </mat-progress-spinner>
+</div>
+<div class="form-wrapper add-adress-form-group" [ngClass]="{'disable':loading}">
+  <div class="form-group">
+    <label
+      class="material-input"
+      [ngClass]="{'hovered':addressForm.controls['first_name'].valid}"
+    >
+      <span>Имя<span class="dark-orange">*</span></span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="addressForm.controls['first_name']"
+      />
+    </label>
+    <label *ngIf="addressForm.controls['first_name'].hasError('required')" class="data-error">Обязательное поле</label>
+  </div>
+  <div class="form-group">
+    <label
+      class="material-input"
+      [ngClass]="{'hovered':addressForm.controls['last_name'].valid}"
+    >
+      <span>Фамилия<span class="dark-orange">*</span></span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="addressForm.controls['last_name']"
+      />
+    </label>
+    <label *ngIf="addressForm.controls['last_name'].hasError('required')" class="data-error">Обязательное поле</label>
+  </div>
+  <div class="form-group">
+    <label class="add-adress-label">
+      <p>Страна</p>
+    </label>
+    <mat-form-field class="add-adress-country">
+      <input matInput aria-label="State" [matAutocomplete]="auto" [formControl]="countryCtrl">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let country of reactiveCountry | async" [value]="country.title">
+          <span>{{ country.title }}</span>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <label class="add-adress-label">
+      <p>Штат</p>
+    </label>
+    <mat-form-field class="add-adress-country">
+      <input matInput aria-label="State" [matAutocomplete]="reactiveAuto" [formControl]="stateCtrl">
+      <mat-autocomplete #reactiveAuto="matAutocomplete">
+        <mat-option *ngFor="let state of reactiveState | async" [value]="state.title">
+          <span>{{ state.title }}</span>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <label
+      class="material-input"
+      [ngClass]="{'hovered':addressForm.controls['city'].valid}"
+    >
+      <span>Город<span class="dark-orange">*</span></span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="addressForm.controls['city']"
+      />
+    </label>
+    <label *ngIf="addressForm.controls['city'].hasError('required')" class="data-error">Обязательное поле</label>
+  </div>
+  <div class="form-group">
+    <label
+      class="material-input"
+      [ngClass]="{'hovered':addressForm.controls['province'].value}"
+    >
+      <span>Область</span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="addressForm.controls['province']"
+      />
+    </label>
+  </div>
+  <div class="form-group">
+    <label
+      class="material-input"
+      [ngClass]="{'hovered':addressForm.controls['district'].value}"
+    >
+      <span>Район</span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="addressForm.controls['district']"
+      />
+    </label>
+  </div>
+  <div class="form-group">
+    <label
+      class="material-input"
+      [ngClass]="{'hovered':addressForm.controls['postalcode'].valid}"
+    >
+      <span>Почтовый индекс<span class="dark-orange">*</span></span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="addressForm.controls['postalcode']"
+      />
+    </label>
+    <label *ngIf="addressForm.controls['postalcode'].hasError('required')" class="data-error">Обязательное поле</label>
+  </div>
+  <div class="form-group">
+    <label
+      class="material-input"
+      [ngClass]="{'hovered':addressForm.controls['address'].valid}"
+    >
+      <span>Адрес<span class="dark-orange">*</span></span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="addressForm.controls['address']"
+      />
+    </label>
+    <label *ngIf="addressForm.controls['address'].hasError('required')" class="data-error">Обязательное поле</label>
+  </div>
+  <div class="form-group">
+    <label
+      class="material-input"
+      [ngClass]="{'hovered':addressForm.controls['house'].value}"
+    >
+      <span>Номер дома</span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="addressForm.controls['house']"
+      />
+    </label>
+  </div>
+  <div class="form-group">
+    <label
+      class="material-input"
+      [ngClass]="{'hovered':addressForm.controls['unit'].value}"
+    >
+      <span>Корпус</span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="addressForm.controls['unit']"
+      />
+    </label>
+  </div>
+  <div class="form-group">
+    <label
+      class="material-input"
+      [ngClass]="{'hovered':addressForm.controls['apartment'].value}"
+    >
+      <span>Квартира</span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="addressForm.controls['apartment']"
+      />
+    </label>
+  </div>
+  <div class="form-group">
+    <label
+      class="material-input"
+      [ngClass]="{'hovered':addressForm.controls['phone'].value}"
+    >
+      <span>Телефон</span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="addressForm.controls['phone']"
+      />
+    </label>
+  </div>
+  <button (click)="saveAddress()" class="btn">Обновить адресс</button>
+</div>
+

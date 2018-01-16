@@ -1,0 +1,135 @@
+<div class="loading">
+  <mat-progress-spinner
+    class="example-margin"
+    mode="indeterminate"
+    *ngIf="loading">
+  </mat-progress-spinner>
+</div>
+<div class="form-wrapper add-adress-form-group"
+     [ngClass]="{'disable':loading}">
+  <div class="form-group">
+    <label
+      class="material-input"
+      [ngClass]="{'hovered':personalData.controls['first_name'].valid}"
+    >
+      <span>Имя<span class="dark-orange">*</span></span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="personalData.controls['first_name']"
+      />
+    </label>
+    <label *ngIf="personalData.controls['first_name'].invalid && personalData.controls['first_name'].touched" class="data-error">Обязательное поле</label>
+  </div>
+  <div class="form-group">
+    <label class="material-input"
+           [ngClass]="{'hovered':personalData.controls['last_name'].valid}">
+      <span>Фамилия<span class="dark-orange">*</span></span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="personalData.controls['last_name']"
+      />
+    </label>
+    <label *ngIf="personalData.controls['last_name'].invalid && personalData.controls['last_name'].touched" class="data-error">Обязательное поле</label>
+  </div>
+  <div class="form-group">
+    <label class="add-adress-label">
+      <p>Страна</p>
+    </label>
+    <mat-form-field class="add-adress-country">
+      <input matInput aria-label="State" [matAutocomplete]="auto" [formControl]="countryCtrl">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let country of reactiveCountry | async" [value]="country.title">
+          <span>{{ country.title }}</span>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+  <div class="form-group" *ngIf="isState">
+    <label class="add-adress-label">
+      <p>Штат</p>
+    </label>
+    <mat-form-field class="add-adress-country">
+      <input matInput aria-label="State" [matAutocomplete]="reactiveAuto" [formControl]="stateCtrl">
+      <mat-autocomplete #reactiveAuto="matAutocomplete">
+        <mat-option *ngFor="let state of reactiveState | async" [value]="state.title">
+          <span>{{ state.title }}</span>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <label class="material-input"
+           [ngClass]="{'hovered':personalData.controls['city'].valid}">
+      <span>Город<span class="dark-orange">*</span></span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="personalData.controls['city']"
+        value="city"
+        name="city"
+      />
+    </label>
+    <label *ngIf="personalData.controls['city'].invalid && personalData.controls['city'].touched" for="" class="data-error">Обязательное поле</label>
+  </div>
+  <div class="form-group">
+    <label class="material-input"
+           [ngClass]="{'hovered':personalData.controls['zip'].valid}">
+      <span>Почтовый индекс<span class="dark-orange">*</span></span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="personalData.controls['zip']"
+      />
+    </label>
+    <label *ngIf="personalData.controls['zip'].invalid && personalData.controls['zip'].touched" class="data-error">Обязательное поле</label>
+  </div>
+  <div class="form-group">
+    <label class="material-input"
+           [ngClass]="{'hovered':personalData.controls['address'].valid}">
+      <span>Адресс</span>
+      <textarea
+        class="input-control"
+        rows="2"
+        [formControl]="personalData.controls['address']"
+        value="address"
+        name="address"
+      ></textarea>
+    </label>
+  </div>
+  <div class="form-group">
+    <label class="material-input"
+           [ngClass]="{'hovered':personalData.controls['phone'].valid}">
+      <span>Телефон<span class="dark-orange">*</span></span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="personalData.controls['phone']"
+        value="phone"
+        name="phone"
+      />
+    </label>
+    <label *ngIf="personalData.controls['phone'].invalid && personalData.controls['phone'].touched" for="" class="data-error">Обязательное поле</label>
+  </div>
+  <div class="form-group">
+    <label class="material-input"
+           [ngClass]="{'hovered':personalData.controls['email'].valid}">
+      <span>Электронная почта<span class="dark-orange">*</span></span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="personalData.controls['email']"
+        value="phone"
+        name="phone"
+      />
+    </label>
+    <label *ngIf="personalData.controls['email'].invalid && personalData.controls['email'].touched" for="" class="data-error">Обязательное поле</label>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn form-wrapper__btn" *ngIf="!toogleShow" (click)="saveData()">сохранить информацмю</button>
+    <button type="submit" class="btn form-wrapper__btn" *ngIf="toogleShow" (click)="updateData()">обновить информацмю</button>
+  </div>
+</div>
+
+

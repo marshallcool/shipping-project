@@ -1,0 +1,58 @@
+<!-- <div class="myorders-adress hide-mobile" *ngIf="!isValid">
+    <h2 class="myorders-adress__title text-center dark-blue">{{ 'GetPersonalAdress.1' | translate }}</h2>
+    <p class="myorders-adress__desc text-center">{{ 'GetPersonalAdress.2' | translate }}<span class="dark-blue">{{ 'GetPersonalAdress.3' | translate }}</span>{{ 'GetPersonalAdress.4' | translate }}
+    </p>
+    <form class="myorders-adress__form" [formGroup]="personalAddress">
+        <input type="text" class="myorders-adress__input" formControlName="firstName">
+        <input type="text" class="myorders-adress__input" formControlName="lastName">
+        <button mat-button type="submit" class="btn myorders-adress__btn" (click)="getAdress()">{{ 'GetPersonalAdress.7' | translate }}</button>
+    </form>
+    <p class="myorders-adress__feature text-center dark-blue">{{ 'GetPersonalAdress.5' | translate }}. {{ 'GetPersonalAdress.6' | translate }}
+    </p>
+</div> -->
+<div class="loading">
+  <mat-progress-spinner
+    class="example-margin"
+    mode="indeterminate"
+    *ngIf="loading">
+  </mat-progress-spinner>
+</div>
+<div class="myorders-adress-active hide-mobile">
+    <div class="myorders-adress-active-title">
+        <div *ngFor="let count of country; let i = index">
+            <a (click)="toogleService(i, count)" class="myorders-adress-active__link" [ngClass]="{'myorders-adress-active__link active':serviceIdx == i}">{{ count.name }}</a>
+        </div>
+    </div>
+    <div class="myorders-adress-active-info">
+        <p class="myorders-adress-active-info__title light-blue">Виртуальный адресс в США: <i class="fa fa-question-circle-o myorders-menu__icon" aria-hidden="true" matTooltip="Tooltip!" matTooltipPosition="above"></i></p>
+        <div class="myorders-adress-active-desc">
+            <p class="light-blue">First Name:</p>
+            <p>{{ address?.first_name }}</p>
+        </div>
+        <div class="myorders-adress-active-desc">
+            <p class="light-blue">Last Name:</p>
+          <p>{{ address?.last_name }}</p>
+        </div>
+        <div class="myorders-adress-active-desc">
+            <p class="light-blue">Address:</p>
+          <p>{{ address?.address1 }}</p>
+        </div>
+        <div class="myorders-adress-active-desc">
+            <p class="light-blue">City:</p>
+          <p>{{ address?.city }}</p>
+        </div>
+        <div class="myorders-adress-active-desc">
+            <p class="light-blue">State:</p>
+          <p>{{ address?.state }}</p>
+        </div>
+        <div class="myorders-adress-active-desc">
+            <p class="light-blue">Zip Code:</p>
+          <p>{{ address?.postal_code }}</p>
+        </div>
+        <div class="myorders-adress-active-desc">
+            <p class="light-blue">Phone:</p>
+          <p>{{ address?.phone }}</p>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

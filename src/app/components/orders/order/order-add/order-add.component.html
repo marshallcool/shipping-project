@@ -1,0 +1,8 @@
+<app-order-add-form
+  (addOrder)="onOrder($event)"></app-order-add-form>
+<app-order-add-list
+  [orders]="orders"
+  [orderData]="orderData"
+  (deleteOrder)="deleteOrder($event)"
+  (saveOrders)="saveOrders($event)"
+></app-order-add-list>

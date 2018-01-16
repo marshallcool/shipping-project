@@ -1,0 +1,20 @@
+<div class="container hide">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="myorders-menu__bot">
+        <ul class="myorders-menu__list">
+          <li class="myorders-menu__item">
+            <a routerLinkActive="myorders-menu__link--active" [routerLink]="['add']" class="myorders-menu__link">Добавить заказ</a>
+          </li>
+          <li class="myorders-menu__item">
+            <a routerLinkActive="myorders-menu__link--active" [routerLink]="['expect-receipt']" class="myorders-menu__link">{{ 'ExpectReceipt' | translate }}</a>
+          </li>
+          <li class="myorders-menu__item">
+            <a routerLinkActive="myorders-menu__link--active" [routerLink]="['in-stock']" class="myorders-menu__link">{{ 'InStock' | translate }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

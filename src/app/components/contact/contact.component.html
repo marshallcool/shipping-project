@@ -1,0 +1,60 @@
+<div class="affiliate_program">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <p class="affiliate_program__title">Связаться с нами</p>
+      </div>
+      <div class="col-md-7">
+        <form class="contact-form__block" [formGroup]="contactForm" (submit)="onSubmit()">
+          <!--<select class="select-contact" (change)="onChange($event)" style="width: 100%">-->
+          <!--<option *ngFor="let theme of themes" [value]="themes">-->
+          <!--{{ theme.value }}-->
+          <!--</option>-->
+          <!--</select>-->
+          <mat-form-field>
+            <mat-select placeholder="Выберите тему" (change)="onChange($event)">
+              <mat-option *ngFor="let theme of themes" [value]="theme">
+                {{ theme.value }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div class="contact-form">
+            <div class="contact-form__input">
+              <label class="material-input">
+                <span>Имя</span>
+                <input class="input-control" type="text" formControlName="name" />
+              </label>
+            </div>
+            <div class="contact-form__input">
+              <label class="material-input">
+                <span>Электронная почта</span>
+                <input class="input-control" type="text" formControlName="email" />
+              </label>
+              <label *ngIf="contactForm.controls['email'].invalid && contactForm.controls['email'].touched" class="data-error">Обязательное поле
+              </label>
+            </div>
+            <div class="contact-form__text">
+              <label class="material-input">
+                <span>Комментарий</span>
+                <textarea formControlName="message" class="input-control" name="" id="" rows="2"></textarea>
+              </label>
+              <label *ngIf="contactForm.controls['message'].invalid && contactForm.controls['message'].touched" class="data-error">Обязательное поле
+              </label>
+            </div>
+          </div>
+          <button mat-button class="btn contact-form__btn" type="submit">отправить сообщение</button>
+        </form>
+      </div>
+      <div class="col-md-5">
+        <p class="contact-form__contact">
+          <img src="../../../assets/images/contact/location.png" alt=""> Huntingdon Valley, Pennsylvania, 19006, USA
+        </p>
+        <p class="contact-form__contact">
+          <img src="../../../assets/images/contact/phone.png" alt=""> +1 (215) 942-8660
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
+

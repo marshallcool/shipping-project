@@ -1,0 +1,130 @@
+<div class="loading">
+  <mat-progress-spinner
+    class="example-margin"
+    mode="indeterminate"
+    *ngIf="loading">
+  </mat-progress-spinner>
+</div>
+<div class="form-wrapper add-adress-form-group"
+     [ngClass]="{'disable':loading}">
+  <div class="form-group">
+    <label
+      class="material-input"
+      [ngClass]="{'hovered':personalData.controls['first_name'].valid, 'disable':personalData.controls['first_name'].disabled}"
+    >
+      <span>Имя<span class="dark-orange" [ngClass]="{'dark-orange--disable':personalData.controls['first_name'].disabled}">*</span></span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="personalData.controls['first_name']"
+      />
+    </label>
+    <label *ngIf="personalData.controls['first_name'].hasError('required')" class="data-error">Обязательное поле</label>
+  </div>
+  <div class="form-group">
+    <label
+      class="material-input"
+      [ngClass]="{'hovered':personalData.controls['last_name'].valid, 'disable':personalData.controls['last_name'].disabled}"
+    >
+      <span>Фамилия<span class="dark-orange" [ngClass]="{'dark-orange--disable':personalData.controls['last_name'].disabled}">*</span></span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="personalData.controls['last_name']"
+      />
+    </label>
+    <label *ngIf="personalData.controls['last_name'].hasError('required')" class="data-error">Обязательное поле</label>
+  </div>
+  <div class="form-group">
+    <label class="add-adress-label">
+      <p>Страна<span class="dark-orange">*</span></p>
+    </label>
+    <mat-form-field class="add-adress-country">
+      <input matInput aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let state of reactiveStates | async" [value]="state.title">
+          <span>{{ state.title }}</span>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <label
+      class="material-input"
+      [ngClass]="{'hovered':personalData.controls['city'].valid}"
+    >
+      <span>Город<span class="dark-orange">*</span></span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="personalData.controls['city']"
+        value="city"
+        name="city"
+      />
+    </label>
+    <label *ngIf="personalData.controls['city'].hasError('required')" class="data-error">Обязательное поле</label>
+  </div>
+  <div class="form-group">
+    <label
+      class="material-input"
+      [ngClass]="{'hovered':personalData.controls['zip'].valid}"
+    >
+      <span>Почтовый индекс<span class="dark-orange">*</span></span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="personalData.controls['zip']"
+      />
+    </label>
+    <label *ngIf="personalData.controls['zip'].hasError('required')" class="data-error">Обязательное поле</label>
+  </div>
+  <div class="form-group">
+    <label
+      class="material-input"
+      [ngClass]="{'hovered':personalData.controls['address'].valid}"
+    >
+      <span>Адресс<span class="dark-orange">*</span></span>
+      <input
+        class="input-control"
+        rows="2"
+        [formControl]="personalData.controls['address']"
+      >
+    </label>
+  </div>
+  <div class="form-group">
+    <label
+      class="material-input"
+      [ngClass]="{'hovered':personalData.controls['phone'].valid}"
+    >
+      <span>Телефон<span class="dark-orange">*</span></span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="personalData.controls['phone']"
+        value="phone"
+        name="phone"
+      />
+    </label>
+    <label *ngIf="personalData.controls['phone'].hasError('required')" class="data-error">Обязательное поле</label>
+  </div>
+  <div class="form-group">
+    <label
+      class="material-input"
+      [ngClass]="{'hovered':personalData.controls['mail'].valid, 'disable':personalData.controls['mail'].disabled}"
+    >
+      <span>Электронная почта:</span>
+      <input
+        class="input-control"
+        type="text"
+        [formControl]="personalData.controls['mail']"
+        value="mail"
+        name="mail"
+      />
+    </label>
+  </div>
+  <div class="form-group">
+    <a class="btn form-wrapper__btn" *ngIf="!tooglePersonalInfo" (click)="saveData()">сохранить информацмю</a>
+    <a class="btn form-wrapper__btn" *ngIf="tooglePersonalInfo" (click)="updateData()">обновить информацмю</a>
+  </div>
+</div>
+

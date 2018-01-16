@@ -1,0 +1,79 @@
+.footer {
+  background: url(./assets/images/footer.png);
+  font-family: intro, sans-serif;
+  margin-top: 215px;
+  &-inst:hover {
+    img {
+      background: url(./assets/images/social/orange-inst.svg) no-repeat;
+      background-size: contain;
+    }
+  }
+  &-vk:hover {
+    img {
+      background: url(./assets/images/social/orange-vk.svg) no-repeat;
+      background-size: contain;
+    }
+  }
+  &-fb:hover {
+    img {
+      background: url(./assets/images/social/orange-fb.svg) no-repeat;
+      background-size: contain;
+    }
+  }
+  &-adress-social {
+    padding-left: 25px;
+    margin-top: 45px;
+    a {
+      text-decoration: none;
+    }
+    &__img {
+      width: 55px;
+      margin-right: 8px;
+    }
+  }
+  &__copyright {
+    font-size: 21px;
+    color: #fff;
+    font-family: open-sans-light;
+    margin-top: 15px;
+    margin-bottom: 0;
+  }
+  &-adress__text {
+    padding-top: 18px;
+  }
+  &-btn {
+    padding: 12px;
+    margin-top: 13px;
+    &:hover {
+      color: #fff;
+    }
+  }
+  &-time {
+    &__title {
+      font-size: 21px;
+      &:nth-child(1) {
+        margin-top: 45px;
+        display: block;
+      }
+    }
+    &__clock {
+      font-size: 75px;
+      color: #fff;
+    }
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+    padding-top: 45px;
+  }
+  &__link {
+    color: $link-dark;
+    text-transform: uppercase;
+    padding-bottom: 31px;
+    display: block;
+    &:hover {
+      color: $link-dark-hover;
+      text-decoration: none;
+    }
+  }
+}

@@ -1,0 +1,104 @@
+<div class="no-data"
+     *ngIf="!item?.length"
+     fxLayout="row"
+     fxLayoutAlign="center center"
+>
+  <p class="no-data__text" fxFlex="100%">
+    здесь появятся посылки из магазинов
+  </p>
+</div>
+<table matSort (matSortChange)="sortData($event)" *ngIf="item?.length" class="myorders-table hide-mobile">
+  <tr class="myorders-table__tr">
+    <th *ngIf="itemImage" class="text-center myorders-table__th"></th>
+    <th *ngIf="number_id" class="text-center myorders-table__th" mat-sort-header="number_id">№</th>
+    <th class="text-center myorders-table__th" mat-sort-header="name">{{ 'TableParcel.1' | translate }}</th>
+    <th *ngIf="tracking" class="text-center myorders-table__th" mat-sort-header="tracking_number">{{ 'TableParcel.2' | translate }}</th>
+    <th class="text-center myorders-table__th" mat-sort-header="shop_title">{{ 'TableParcel.3' | translate }}</th>
+    <th class="text-center myorders-table__th" mat-sort-header="price">цена</th>
+    <th *ngIf="weight" class="text-center myorders-table__th" mat-sort-header="weight">вес</th>
+    <th class="text-center myorders-table__th" mat-sort-header="date">создано</th>
+    <th *ngIf="payment" class="text-center myorders-table__th" mat-sort-header="payment">оплата</th>
+    <th *ngIf="message" class="text-center myorders-table__th"></th>
+  </tr>
+
+  <tr
+    class="myorders-table__tr"
+    *ngFor="let it of item; trackBy: trackById; let i = index"
+    infinite-scroll
+    debounce
+    [infiniteScrollDistance]="100"
+    [infiniteScrollThrottle]="1000"
+    (scrolled)="onScroll()"
+  >
+    <td *ngIf="itemImage" class="text-center myorders-table__td myorders-table__td__prev">
+      <img (click)="openImage(it.value)" src="../../../assets/images/orders/preview.png" class="myorders-table__td__prev__img" alt="">
+      <img (click)="openImage(it.value)" src="https://www.w3schools.com/css/paris.jpg" class="myorders-table__td__prev__img myorders-table__td__prev__img show" alt="">
+    </td>
+    <td *ngIf="number_id" class="text-center myorders-table__td myorders-table__td__prev">{{ i + 1 }}</td>
+    <td class="text-center myorders-table__td"><a href="#" class="myorders-table__link">{{it.track}}</a></td>
+    <td *ngIf="tracking" class="text-center myorders-table__td"><a href="#" class="myorders-table__link">{{it.tracking_number}}</a></td>
+    <td class="text-center myorders-table__td">{{it.shop_title}}</td>
+    <td class="text-center myorders-table__td">{{it?.value}}{{it?.total_price}}</td>
+    <td *ngIf="weight" class="text-center myorders-table__td">{{ it?.weight_oz }}</td>
+    <td class="text-center myorders-table__td">{{it.created}}</td>
+    <td *ngIf="payment" class="text-center myorders-table__td myorders-table__td__pay">
+      <p *ngIf="!it.need_payment">оплачено</p>
+      <p *ngIf="it.need_payment">не оплачено</p>
+    </td>
+    <td *ngIf="message" class="text-center myorders-table__td">
+      <a href="#" [routerLink]="['/messages/message', it.id]">
+        <img src="../../../assets/images/orders/mail.png" alt="">
+      </a>
+    </td>
+  </tr>
+</table>
+<p *ngIf="loading">Loading</p>
+<div *ngIf="item?.length">
+  <mat-expansion-panel class="show-mobile" *ngFor="let it of item; let i = index">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <img *ngIf="itemImage" src="../../../../../assets/images/orders/preview.png"
+             class="myorders-table__td__prev__img"
+             alt=""
+        >
+        <p class="show-mobile__head">Объект</p>
+        <p class="show-mobile__head">{{it.shop_title}}</p>
+        <p class="show-mobile__head">{{it.value}}</p>
+        <a href="#" *ngIf="message">
+          <img src="../../../../../assets/images/orders/mail.png" class="mail" alt="">
+        </a>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div fxLayout="column" fxLayoutAlign="end center">
+      <div class="parcel-item" fxLayout="row" fxLayoutAlign="space-between none">
+        <p class="parcel-item__title" fxFlex="46%">Магазин</p>
+        <p class="parcel-item__text" fxFlex="30%">ТЕST</p>
+      </div>
+      <div class="parcel-item" fxLayout="row" fxLayoutAlign="space-between none">
+        <p class="parcel-item__title" fxFlex="46%">Цена</p>
+        <p class="parcel-item__text" fxFlex="30%">$00</p>
+      </div>
+      <div class="parcel-item" fxLayout="row" fxLayoutAlign="space-between none">
+        <p class="parcel-item__title" fxFlex="46%">Вес</p>
+        <p class="parcel-item__text" fxFlex="30%">10lbs</p>
+      </div>
+      <div class="parcel-item" fxLayout="row" fxLayoutAlign="space-between none">
+        <p class="parcel-item__title" fxFlex="46%">Дата</p>
+        <p class="parcel-item__text" fxFlex="30%">10.10.1992</p>
+      </div>
+      <div class="parcel-item parcel-item__line"></div>
+      <div class="parcel-item" fxLayout="row" fxLayoutAlign="space-between none">
+        <p class="parcel-item__title" fxFlex="46%">Название товара</p>
+        <p class="parcel-item__text" fxFlex="30%">Leavaes mfefgf</p>
+      </div>
+      <div class="parcel-item" fxLayout="row" fxLayoutAlign="space-between none">
+        <p class="parcel-item__title" fxFlex="46%">Трек-Номер</p>
+        <p class="parcel-item__text" fxFlex="30%">Трек-Номер</p>
+      </div>
+      <div class="parcel-item" fxLayout="row" fxLayoutAlign="space-between none">
+        <p class="parcel-item__title" fxFlex="46%">Номер заказа</p>
+        <p class="parcel-item__text" fxFlex="30%">Номер заказа</p>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</div>

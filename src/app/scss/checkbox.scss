@@ -1,0 +1,53 @@
+.myorders-table__tr {
+  .mat-checkbox-checkmark-path {
+    stroke: #ff6656 !important;
+  }
+  .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background: #ffffff !important;
+    border: 2px solid #ff6656;
+  }
+}
+
+.services {
+
+}
+
+.form-parcel-delivery-content-wr {
+  @media (max-width: 417px) {
+    font-size: 12px;
+  }
+}
+.order-parcel {
+
+  @media (max-width: 417px) {
+    label {
+      margin-bottom: 0;
+    }
+  }
+  .mat-checkbox-checkmark-path {
+    stroke: #ff6656 !important;
+  }
+  .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background: #ffffff !important;
+    border: 2px solid #ff6656;
+  }
+  .mat-checkbox-ripple {
+    position: relative;
+  }
+  .mat-checkbox-frame {
+    border-color: rgb(247, 100, 81);
+  }
+  .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background: #ffffff;
+    border: 2px solid rgb(247, 100, 81);
+  }
+  .mat-checkbox-checkmark-path {
+    stroke: rgb(247, 100, 81) !important;
+  }
+  .mat-checkbox {
+    @media (max-width: 417px) {
+      font-size: 12px;
+    }
+  }
+}
+

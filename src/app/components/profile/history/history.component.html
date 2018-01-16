@@ -1,0 +1,52 @@
+<!--<div class="form-wrapper add-credit-form-group">-->
+  <!--<div class="form-group">-->
+    <!--<a href="#" class="btn form-wrapper__btn">пополнить баланс</a>-->
+  <!--</div>-->
+  <!--<p class="payment_history&#45;&#45;nodata">-->
+    <!--Нет данных-->
+  <!--</p>-->
+<!--</div>-->
+<div class="example-container mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="date">
+      <mat-header-cell *matHeaderCellDef> date </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.date}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="invoice">
+      <mat-header-cell *matHeaderCellDef> invoice </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.invoice}} </mat-cell>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef> description </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef> price </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="balance">
+      <mat-header-cell *matHeaderCellDef> balance </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.balance}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

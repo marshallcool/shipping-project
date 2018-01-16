@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <table class="myorders-table" *ngIf="messages" matSort (matSortChange)="sortData($event)">
+        <tr class="myorders-table__tr">
+          <th class="text-center message-table__head" mat-sort-header="object">объект</th>
+          <th class="text-center message-table__head" mat-sort-header="author">автор</th>
+          <th class="message-table__head" mat-sort-header="message">сообщение</th>
+          <th class="text-center message-table__head"></th>
+          <th class="message-table__content__date message-table__head" mat-sort-header="date">ДАТА</th>
+        </tr>
+
+        <tr class="myorders-table__tr" *ngFor="let message of messages; let i = index">
+          <td class="text-center message-table__content message-table__content__object"><a [routerLink]="['..', 'message', message.object]" class="message-table__content__link" href="">{{ message.object }}</a></td>
+          <td class="text-center message-table__content message-table__content__author">{{ message.author }}</td>
+          <td class="message-table__content"><a [routerLink]="['..', 'message', message.object]" class="message-table__content__link" [ngClass]="{'message-table__content__link--unread': !message.is_read}" href="">{{ message.message }}</a></td>
+          <td class="text-center message-table__content"><p *ngIf="!message.is_read" class="message-table__content--unread">1</p></td>
+          <td class="text-center message-table__content message-table__content__date">{{ message.date }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

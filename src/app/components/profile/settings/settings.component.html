@@ -1,0 +1,87 @@
+<div class="loading">
+  <mat-progress-spinner
+    class="example-margin"
+    mode="indeterminate"
+    *ngIf="loadingSetting">
+  </mat-progress-spinner>
+</div>
+<div class="form-wrapper setting-form-group"
+     *ngIf="!loading"
+     [ngClass]="{'disable':loadingSetting}"
+>
+  <form action="">
+    <div class="setting-nickname">
+      <label class="add-credit-wr-label">ник</label>
+      <input
+        type="text"
+        [formControl]="settingForm.controls['nickname']"
+      />
+    </div>
+    <div class="add-credit-wr setting-checkbox add-credit-wr--checkbox">
+      <label class="add-credit-wr-label setting__label">счет</label>
+      <input type="checkbox" class="checkbox" id="checkbox-1" [checked]="setting.invoice_autopay" />
+      <label for="checkbox-1" class="add-credit-wr--checkbox-label setting-checkbox-label" (click)="changeAutopay()">Автоматически оплачивать счета</label>
+    </div>
+    <div class="form-group">
+      <label class="add-credit-wr-label setting__label">единицы измерения</label>
+      <label class="add-adress-label">
+        <select class="js-example-basic-single add-adress-lang js-states form-control" (change)="changeWeight($event.target.value)">
+          <option value="default"> {{ setting.units_weight }} </option>
+          <option value="lbs">Фунт</option>
+          <option value="kg">Килограмм</option>
+        </select>
+      </label>
+    </div>
+    <div class="form-group">
+      <label class="add-credit-wr-label setting__label">языки</label>
+      <label class="add-adress-label">
+        <select class="js-example-basic-single add-adress-ed js-states form-control" (change)="changeLanguage($event.target.value)">
+          <option value="default"> {{ setting.language }} </option>
+          <option value="ru">Русский</option>
+          <option value="en">English</option>
+          <option value="ar">Arabia</option>
+        </select>
+      </label>
+    </div>
+
+    <label class="add-credit-wr-label setting__label">Рассылка</label>
+    <div class="add-credit-wr add-credit-info setting-wr-check settings-subscriptions">
+      <div class="add-credit-wr setting-checkbox add-credit-wr--checkbox">
+        <input type="checkbox" class="" id="checkbox-2" [checked]="setting.subscribe_news" (click)="changeSubscribeNews()" />
+        <label for="checkbox-2" class="add-credit-wr--checkbox-label setting-checkbox-label" >Новости компании</label>
+      </div>
+      <div class="add-credit-wr setting-checkbox add-credit-wr--checkbox">
+        <input type="checkbox" class="" id="checkbox-8" [checked]="setting.special_offers" (click)="changeSpecialOffers()" />
+        <label for="checkbox-8" class="add-credit-wr--checkbox-label setting-checkbox-label" >Специальные предложения</label>
+      </div>
+      <div class="add-credit-wr setting-checkbox add-credit-wr--checkbox">
+        <input type="checkbox" class="" id="checkbox-9" [checked]="setting.best_of_week" (click)="changeBestOfWeek()" />
+        <label for="checkbox-9" class="add-credit-wr--checkbox-label setting-checkbox-label" >Лучшее за неделю</label>
+      </div>
+      <div class="add-credit-wr setting-checkbox add-credit-wr--checkbox">
+        <input type="checkbox" class="" id="checkbox-10" [checked]="setting.usa_discounts" (click)="changeUsaDiscount()" />
+        <label for="checkbox-10" class="add-credit-wr--checkbox-label setting-checkbox-label" >Скидки в магазинах США</label>
+      </div>
+      <div class="add-credit-wr setting-checkbox add-credit-wr--checkbox">
+        <input type="checkbox" class="" id="checkbox-11" [checked]="setting.wholesale_invitations" (click)="changeWholeSale()"/>
+        <label for="checkbox-11" class="add-credit-wr--checkbox-label setting-checkbox-label" >Приглашения на оптовые закупки</label>
+      </div>
+    </div>
+
+    <label class="add-credit-wr-label setting__label">счет</label>
+    <div class="add-credit-wr add-credit-info setting-wr-check">
+      <div class="add-credit-wr setting-checkbox add-credit-wr--checkbox">
+        <input type="checkbox" class="" id="checkbox-3" [checked]="setting.system_notifications" (click)="changeNotification()" />
+        <label for="checkbox-3" class="add-credit-wr--checkbox-label setting-checkbox-label" >Системные уведомления</label>
+      </div>
+      <div class="add-credit-wr setting-checkbox add-credit-wr--checkbox">
+        <input type="checkbox" class="" id="checkbox-5" [checked]="setting.report_day" (click)="changeReport()"/>
+        <label for="checkbox-5" class="add-credit-wr--checkbox-label setting-checkbox-label">Отчет за день</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <a (click)="saveSettings()" class="btn form-wrapper__btn">сохранить изменения </a>
+    </div>
+  </form>
+</div>

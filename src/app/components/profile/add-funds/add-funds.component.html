@@ -1,0 +1,81 @@
+<mat-tab-group>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-radio-button checked="true" class="example-radio-button">
+        PayPal
+      </mat-radio-button>
+    </ng-template>
+    <div class="row" fxLayoutAlign="center center" fxLayout="column">
+      <div class="funds-sum">
+        <input type="text" class="funds-sum__input" [(ngModel)]="payPal" placeholder="Введите сумму">
+        <p class="funds-sum__text">
+          Комиссия 3.2 % + 0.3$
+        </p>
+      </div>
+    </div>
+    <div fxLayoutAlign="center center">
+      <a class="btn" (click)="sendPayPal()">оплатить</a>
+    </div>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-radio-button class="example-radio-button">
+        Кредитная карта
+      </mat-radio-button>
+    </ng-template>
+    <div class="row" fxLayoutAlign="center center" fxLayout="column">
+      <div class="funds-card">
+        <div class="funds-card__list" fxLayout="row" fxLayoutAlign="center center">
+          <div class="funds-card__list__item" fxFlex="25%" fxLayoutAlign="center center">
+            <img src="../../../../assets/images/cards/visa.png" alt="" class="funds-card__img">
+          </div>
+          <div class="funds-card__list__item" fxFlex="25%" fxLayoutAlign="center center">
+            <img src="../../../../assets/images/cards/master.png" alt="" class="funds-card__img">
+          </div>
+          <div class="funds-card__list__item" fxFlex="25%" fxLayoutAlign="center center">
+            <img src="../../../../assets/images/cards/discover.png" alt="" class="funds-card__img">
+          </div>
+        </div>
+      </div>
+      <div class="funds-sum">
+        <input type="text" class="funds-sum__input" [formControl]="form.controls['suma']" placeholder="Введите сумму">
+        <p class="funds-sum__text">
+          Комиссия 3.6% + 0.3$
+        </p>
+      </div>
+      <div class="funds-wrap">
+        <span class="funds-line"></span>
+        <form fxLayoutAlign="baseline center" fxLayout="row" fxLayoutWrap="wrap" fxLayoutGap="20px" novalidate>
+          <input fxFlex="40%" placeholder="Name on card" [formControl]="form.controls['nameCard']">
+          <input fxFlex="25%" placeholder="MM / YYYY" id="cc-exp-date" [formControl]="form.controls['expirationDate']" type="tel" autocomplete="cc-exp" ccExp>
+          <input fxFlex="15%" id="cc-cvc" placeholder="CVC" [formControl]="form.controls['cvc']" type="tel" autocomplete="off" ccCvc>
+          <input fxFlex="50%" id="cc-number" placeholder="Card number" [formControl]="form.controls['creditCard']" type="tel" autocomplete="cc-number" ccNumber>
+        </form>
+      </div>
+    </div>
+    <div fxLayoutAlign="center center">
+      <a class="btn" (click)="sendCreditCard()">оплатить</a>
+    </div>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-radio-button class="example-radio-button">
+        Bitcoin
+      </mat-radio-button>
+    </ng-template>
+    <div class="row" fxLayoutAlign="center center" fxLayout="column">
+      <div class="funds-sum">
+        <input type="text" class="funds-sum__input" [(ngModel)]="Bitcoin" placeholder="Введите сумму">
+        <p class="funds-sum__text">
+          Комиссия 3%<br>
+          Зачисление средств занимает до 2 часов.
+        </p>
+      </div>
+    </div>
+    <div fxLayoutAlign="center center">
+      <a class="btn" (click)="sendBitcoin()">оплатить</a>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+
+

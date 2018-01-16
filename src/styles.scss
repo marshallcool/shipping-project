@@ -1,0 +1,295 @@
+/* You can add global styles to this file, and also import other style files */
+//@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import './app/scss/theme';
+@import './app/scss/fonts';
+@import './app/scss/constants';
+@import './app/scss/orders/orders';
+@import './app/scss/orders/pay';
+@import './app/scss/orders/calculate-orders';
+@import './app/scss/input';
+@import './app/scss/nav';
+@import './app/scss/media';
+@import './app/scss/footer';
+@import './app/scss/button';
+@import './app/scss/spinner';
+@import './app/scss/carousel';
+@import './app/scss/checkbox';
+@import './app/scss/collapse';
+html {
+  overflow-x: hidden;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  font-family: 'open-sans-regular','Roboto', sans-serif !important;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+  &:before,
+  &:after {
+    box-sizing: inherit;
+  }
+}
+
+.btn {
+  line-height: 1.25 !important;
+}
+.btn:focus {
+  color: #fff;
+  box-shadow: none !important;
+}
+
+a:focus,
+a:hover {
+  color: $dark-orange !important;
+  text-decoration: none !important;
+  outline: none;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.tooltip.show {
+  opacity: 1;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+a {
+  &:hover {
+    cursor: pointer;
+  }
+}
+ul.ui-tabview-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
+  border: none !important;
+  a {
+    border-bottom: 1px dashed;
+    padding: 1px;
+    margin-right: 24px;
+  }
+}
+.ui-tabview .ui-tabview-nav > li.ui-state-default {
+  background: #fff !important;
+  border: none;
+}
+li.ui-state-default.ui-corner-top.ui-tabview-selected.ui-state-active {
+  border: none;
+  a {
+    color: #ff6656;
+  }
+}
+span.select2-selection.select2-selection--single {
+  height: 45px !important;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+span.select2-selection.select2-selection--single {
+  border: 1px solid #d4d4d4;
+  border-radius: 10px;
+  height: 45px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  top: 10px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+  border-color: #d4d4d4 transparent transparent transparent;
+}
+
+.select2-container {
+  min-width: 40% !important;
+}
+
+.dark-blue {
+  color: $dark-blue !important;
+}
+
+.light-blue {
+  color: #44415f !important;
+}
+
+.dark-orange {
+  color: $dark-orange !important;
+  &--disable {
+    display: none !important;
+  }
+}
+
+.text-bold {
+  font-family: open-sans-bold;
+}
+
+.dark-gray {
+  color: #959595;
+}
+span.select2.select2-container.select2-container--default {
+  @media (max-width: 1200px) {
+    width: 100% !important;
+  }
+  @media (max-width: 767px) {
+    width: 100% !important;
+  }
+}
+.mat-tab-labels {
+  justify-content: space-between;
+}
+.mat-radio-label-content {
+  width: 148px;
+  height: 100%;
+  display: flex !important;
+  align-items: center;
+}
+mat-radio-button {
+  width: 100%;
+  height: 100%;
+}
+label.mat-radio-label {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.mat-tab-label {
+  opacity: 1;
+}
+.mat-sort-header-container {
+  align-items: center;
+  justify-content: center;
+}
+button:focus {
+  outline: none !important;
+}
+.mat-form-field {
+  width: 100%;
+}
+.add-adress-country {
+  .mat-input-infix {
+    border: 2px solid #bdc3c7;
+    border-radius: 10px;
+    padding: 19px;
+  }
+  .mat-form-field-underline {
+    display: none;
+  }
+}
+
+textarea {
+  padding-left: 15px;
+}
+.warning-bar {
+  background: #f76451;
+}
+.success-bar {
+  background: green;
+}
+@keyframes party {
+  0% { background: #00f; }
+  10% { background: #8e44ad; }
+  20% { background: #1abc9c; }
+  30% { background: #d35400; }
+  40% { background: #00f; }
+  50% { background: #34495e; }
+  60% { background: #00f; }
+  70% { background: #2980b9; }
+  80% { background: #f1c40f; }
+  90% { background: #2980b9; }
+  100% { background: #0ff; }
+}
+
+.dropdown-menu.show {
+  border: none;
+}
+
+.hide-mobile {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+.mat-dialog-container {
+  background: transparent;
+  box-shadow: none !important;
+}
+.loading {
+  z-index: 99;
+  top: 30%;
+  left: 17%;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.disable {
+  opacity: .7;
+}
+.mat-sort-header-sorted {
+  color: #e26657;
+}
+.ui-overlaypanel.ui-widget.ui-widget-content.ui-corner-all.ui-shadow {
+  border: none !important;
+  background: transparent !important;
+  color: #222222;
+  box-shadow: none !important;
+  width: 41%;
+}
+.ui-lightbox-content {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.undefined {
+  img {
+    width: 20%;
+    top: -62px;
+    position: relative;
+    left: -36px;
+  }
+}
+.ui-lightbox-content .ui-corner-all {
+  img {
+    width: 21%;
+    background: transparent;
+  }
+}
+.ui-lightbox.ui-widget.ui-helper-hidden.ui-corner-all.ui-shadow {
+  img {
+    width: 205px;
+    background: transparent;
+  }
+}
+.packaging {
+  .mat-expansion-panel-header-title {
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+  }
+}
+.wrap-load {
+  margin: 50px;
+  display: block;
+  width:100px;
+}
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+  opacity: 1;
+}
+.cdk-overlay-dark-backdrop {
+  background: rgba(68,65,95, 0.7);
+}

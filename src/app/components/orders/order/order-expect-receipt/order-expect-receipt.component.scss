@@ -1,0 +1,39 @@
+img {
+  width: 20%;
+}
+.myorders-table__td__prev {
+  width: 4%;
+}
+.myorders-table__td__prev__img {
+  width: 42%;
+}
+.myorders-table__td__pay {
+  font-size: 14px;
+  font-family: intro, sans-serif;
+  color: #323044;
+}
+
+.search {
+  padding-right: 15px;
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  i {
+    color: #adadad;
+  }
+  &__input {
+    padding-left: 37px;
+    background: #efefef;
+    border: 1px solid #efefef;
+    border-radius: 10px;
+    width: 20%;
+    transition: width 0.5s ease-out 0.5s;
+    &:focus {
+      width: 100%;
+      transition: width 0.5s ease-out 0.5s;
+    }
+  }
+}
+
+

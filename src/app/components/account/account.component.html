@@ -1,0 +1,120 @@
+<div class="internal-page">
+  <div class="container container--mobile">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="internal-page__name">Мои вознаграждения</h1>
+        <div class="internal-page__wrap">
+
+          <div id="mobile-menu">
+            <div class="strip" id="data">
+              <div class="block-close">
+                <i class="material-icons">clear</i>
+              </div>
+              <p class="internal-page__wrap-menu-title internal-page__wrap-menu-title__data"><img src="../../../assets/images/profile/icon1.png" alt="">Категории</p>
+              <ul class="internal-page__wrap-menu__mobile">
+                <li class="internal-page__wrap-menu__item">
+                  <a href="" class="internal-page__wrap-menu__link" routerLinkActive="internal-page__wrap-menu__link--active" [routerLink]="['personal-info']">Личная информация</a>
+                </li>
+                <li class="internal-page__wrap-menu__item">
+                  <a href="" class="internal-page__wrap-menu__link"  routerLinkActive="internal-page__wrap-menu__link--active" [routerLink]="['avatar']">Сменить аватар</a>
+                </li>
+                <li class="internal-page__wrap-menu__item">
+                  <a href="" class="internal-page__wrap-menu__link" routerLinkActive="internal-page__wrap-menu__link--active" [routerLink]="['billing']">Платежная информация</a>
+                </li>
+                <li class="internal-page__wrap-menu__item">
+                  <a href="" class="internal-page__wrap-menu__link" routerLinkActive="internal-page__wrap-menu__link--active" [routerLink]="['adress']">Адрес доставкия</a>
+                </li>
+                <li class="internal-page__wrap-menu__item">
+                  <a href="" routerLinkActive="internal-page__wrap-menu__link--active" [routerLink]="['address-usa']" class="internal-page__wrap-menu__link">Адрес в США</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="strip" id="finance">
+              <div class="block-close">
+                <i class="material-icons">clear</i>
+              </div>
+              <p class="internal-page__wrap-menu-title internal-page__wrap-menu-title__finance"><img src="../../../assets/images/profile/icon2.png" alt="">взаимодействия</p>
+              <ul class="internal-page__wrap-menu__mobile">
+                <li class="internal-page__wrap-menu__item">
+                  <a href="" [routerLink]="['addfunds']" class="internal-page__wrap-menu__link" routerLinkActive="internal-page__wrap-menu__link--active">Пополнить баланс</a>
+                </li>
+                <li class="internal-page__wrap-menu__item">
+                  <a href="" class="internal-page__wrap-menu__link" routerLinkActive="internal-page__wrap-menu__link--active" [routerLink]="['cards']">Кредитные карты</a>
+                </li>
+                <li class="internal-page__wrap-menu__item">
+                  <a href="" class="internal-page__wrap-menu__link" routerLinkActive="internal-page__wrap-menu__link--active" [routerLink]="['history']">История платежей</a>
+                </li>
+                <li class="internal-page__wrap-menu__item">
+                  <a href="" class="internal-page__wrap-menu__link" routerLinkActive="internal-page__wrap-menu__link--active" [routerLink]="['invoice']">Счет</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="strip" id="setting">
+              <div class="block-close">
+                <i class="material-icons">clear</i>
+              </div>
+              <p class="internal-page__wrap-menu-title internal-page__wrap-menu-title__setting"><img src="../../../assets/images/profile/icon3.png" alt="">дополнительно</p>
+              <ul class="internal-page__wrap-menu__mobile">
+                <li class="internal-page__wrap-menu__item">
+                  <a href="" class="internal-page__wrap-menu__link internal-page__wrap-menu__link--pass" routerLinkActive="internal-page__wrap-menu__link--active" [routerLink]="['password']">Смена пороля</a>
+                </li>
+                <li class="internal-page__wrap-menu__item">
+                  <a href="" class="internal-page__wrap-menu__link" routerLinkActive="internal-page__wrap-menu__link--active" [routerLink]="['settings']">дополнительно</a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+          <div class="internal-page__wrap-menu">
+            <span class="internal-page__wrap-menu-title internal-page__wrap-menu-title__data">
+              <img src="../../../assets/images/profile/icon1.png" alt="">
+              Баланс
+            </span>
+            <ul class="internal-page__wrap-menu__list">
+              <li class="internal-page__wrap-menu__item" routerLinkActive="internal-page__wrap-menu__link__balance--active">
+                <a href="" class="internal-page__wrap-menu__link" routerLinkActive="internal-page__wrap-menu__link--active" [routerLink]="['charges']">Начисления</a>
+              </li>
+              <li class="internal-page__wrap-menu__item" routerLinkActive="internal-page__wrap-menu__link__balance--active">
+                <a href="" class="internal-page__wrap-menu__link"  routerLinkActive="internal-page__wrap-menu__link--active" [routerLink]="['available_remuneration']">Доступные вознаграждения</a>
+              </li>
+              <li class="internal-page__wrap-menu__item" routerLinkActive="internal-page__wrap-menu__link__balance--active">
+                <a href="" class="internal-page__wrap-menu__link" routerLinkActive="internal-page__wrap-menu__link--active" [routerLink]="['payments']">Выплаты</a>
+              </li>
+            </ul>
+            <span class="internal-page__wrap-menu-title internal-page__wrap-menu-title__finance">
+              <img src="../../../assets/images/profile/icon2.png" alt="">
+              взаимодействия
+            </span>
+            <ul class="internal-page__wrap-menu__list">
+              <li class="internal-page__wrap-menu__item" routerLinkActive="internal-page__wrap-menu__link__interactions--active">
+                <a href="" [routerLink]="['referrals']" class="internal-page__wrap-menu__link" routerLinkActive="internal-page__wrap-menu__link--active">Рефералы</a>
+              </li>
+              <li class="internal-page__wrap-menu__item" routerLinkActive="internal-page__wrap-menu__link__interactions--active">
+                <a href="" class="internal-page__wrap-menu__link" routerLinkActive="internal-page__wrap-menu__link--active" [routerLink]="['transitions']">Переходы</a>
+              </li>
+            </ul>
+            <span class="internal-page__wrap-menu-title internal-page__wrap-menu-title__setting">
+              <img src="../../../assets/images/profile/icon3.png" alt="">
+              дополнительно
+            </span>
+            <ul class="internal-page__wrap-menu__list">
+              <li class="internal-page__wrap-menu__item" routerLinkActive="internal-page__wrap-menu__link__additionally--active">
+                <a href="" class="internal-page__wrap-menu__link internal-page__wrap-menu__link--pass" routerLinkActive="internal-page__wrap-menu__link--active" [routerLink]="['banners']">Баннеры</a>
+              </li>
+              <li class="internal-page__wrap-menu__item" routerLinkActive="internal-page__wrap-menu__link__additionally--active">
+                <a href="" class="internal-page__wrap-menu__link" routerLinkActive="internal-page__wrap-menu__link--active" [routerLink]="['links']">Ссылки</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="internal-page__wrap-content">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="wrap-load">
+            <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+          </div>
+            <app-table [item]="parcels" [component]="component">
+            </app-table>
+        </div>
+    </div>
+</div>

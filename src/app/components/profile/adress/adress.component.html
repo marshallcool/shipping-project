@@ -1,0 +1,25 @@
+<router-outlet></router-outlet>
+<div class="loading">
+  <mat-progress-spinner
+    class="example-margin"
+    mode="indeterminate"
+    *ngIf="loading">
+  </mat-progress-spinner>
+</div>
+<div *ngIf="isShowToogle">
+  <a href="#" class="btn adress-delivery__btn" [routerLink]="['add']">добавить адрес</a>
+  <mat-card class="address-card" *ngFor="let address of resultAddress">
+    <div class="address-wr">
+      <div class="address-content">
+        {{ address.first_name }}, {{ address.phone }}<br>
+        {{ address.country }}, {{ address.city }}, {{ address.address }}
+      </div>
+      <div class="address-menu">
+        <i class="fa fa-pencil-square-o" aria-hidden="true" [routerLink]="['edit/', address.id]"></i>
+        <i class="fa fa-times" aria-hidden="true" (click)="removeAddress(address.id)"></i>
+      </div>
+    </div>
+  </mat-card>
+</div>
+
+

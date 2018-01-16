@@ -1,0 +1,95 @@
+<section class="s-myorders">
+  <div class="container">
+    <div class="row">
+      <div class="calculate-orders">
+        <div class="calculate-orders__menu">
+          <a class="calculate-orders__link" (click)="toogleActive(1)"
+             [ngClass]="{'calculate-orders__link--active':selectedIdx == 1}">
+            <p class="text-center">{{ 'OrderReceipt.ManualInput' | translate }}</p>
+            <img src="./../../../../assets/images/orders/calculate/input.svg" alt="">
+          </a>
+          <a class="calculate-orders__link" (click)="toogleActive(2)"
+             [ngClass]="{'calculate-orders__link--active':selectedIdx == 2}">
+            <p class="text-center">{{ 'OrderReceipt.InsertCartCompletely' | translate }}</p>
+            <img src="./../../../../assets/images/orders/calculate/basket.svg" alt="">
+          </a>
+        </div>
+        <div class="calculate-orders__content">
+          <div class="calculate-orders__content-form">
+            <form class="form-wrapper" [formGroup]="newParcel" *ngIf="selectedIdx == 1">
+              <div class="form-group">
+                <label class="material-input"
+                       [ngClass]="{'hovered':newParcel.controls['link'].valid}"
+                >
+                  <span>{{ 'OrderReceipt.LinkToProduct' | translate }}<span class="dark-orange">*</span></span>
+                  <input class="input-control" type="text" formControlName="link"/>
+                </label>
+                <label *ngIf="newParcel.controls['link'].invalid && newParcel.controls['link'].touched"
+                       class="data-error">Обязательное поле</label>
+              </div>
+              <div class="form-group form-group--inline">
+                <label class="material-input"
+                       [ngClass]="{'hovered':newParcel.controls['title'].value}"
+                >
+                  <span>{{ 'OrderReceipt.ProductName' | translate }}</span>
+                  <input class="input-control" type="text" formControlName="title"/>
+                </label>
+                <label for="" class="material-input"
+                       [ngClass]="{'hovered':newParcel.controls['quantity'].valid, 'hovered-error':newParcel.controls.quantity.errors?.number}">
+                  <span>{{ 'OrderReceipt.Count' | translate }}<span class="dark-orange">*</span></span>
+                  <input class="input-control" type="text" formControlName="quantity"/>
+                </label>
+              </div>
+              <div class="form-group form-group--inline">
+                <label for="" class="material-input"
+                       [ngClass]="{'hovered':newParcel.controls['article'].value}"
+                >
+                  <span>{{ 'OrderReceipt.Articul' | translate }}</span>
+                  <input class="input-control" id="" type="text" formControlName="article"/>
+                </label>
+                <label for="" class="material-input material-input__error"
+                       [ngClass]="{'hovered':newParcel.controls['price'].value}"
+                >
+                  <span>{{ 'OrderReceipt.Price' | translate }} $</span>
+                  <input class="input-control" id="" type="text" formControlName="price"/>
+                </label>
+              </div>
+              <div class="form-group form-group--inline">
+                <label for="" class="material-input"
+                       [ngClass]="{'hovered':newParcel.controls['code'].value}"
+                >
+                  <span>{{ 'OrderReceipt.PromoCode' | translate }}</span>
+                  <input class="input-control" type="text" formControlName="code"/>
+                </label>
+                <label for="" class="material-input"
+                       [ngClass]="{'hovered':newParcel.controls['sale'].value}"
+                >
+                  <span>{{ 'OrderReceipt.Sale' | translate }}</span>
+                  <input class="input-control" type="text" formControlName="sale"/>
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="material-input"
+                       [ngClass]="{'hovered':newParcel.controls['comment'].value}"
+                >
+                  <span>{{ 'OrderReceipt.Comment' | translate }}</span>
+                  <textarea class="input-control" name="" rows="2" formControlName="comment"></textarea>
+                </label>
+              </div>
+              <div class="form-group hidden-md-down">
+                <button type="submit" class="btn form-wrapper__btn" mat-button (click)="addParcel()">{{ 'OrderReceipt.Upload' | translate }}
+                </button>
+              </div>
+            </form>
+            <app-simple-tiny *ngIf="selectedIdx == 2" [elementId]="'my-editor-id'">
+              <!-- (onEditorKeyup)="keyupHandlerFunction($event)" -->
+            </app-simple-tiny>
+          </div>
+          <div class="calculate-orders__content-help">
+            <p>{{ 'OrderReceipt.Help' | translate }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

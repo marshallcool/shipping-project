@@ -1,0 +1,71 @@
+<a href="javascript:void(0)" (click)="addCardShow()" class="btn adress-delivery__btn" *ngIf="!showCard">добавить карту</a>
+<div class="form-wrapper add-credit-form-group" *ngIf="showCard">
+  <form>
+    <div class="add-credit-wr">
+      <input
+        type="text"
+        max="16"
+        max-length="16"
+        min="16"
+        placeholder="Имя и Фамилия владельца карты "
+        id="cc-name"
+        autocomplete="cc-name"
+        [formControl]="newCard.controls['name']"
+      />
+    </div>
+    <div class="add-credit-wr">
+      <input
+        type="tel"
+        placeholder="Номер карты"
+        autocomplete="cc-number"
+        id="cc-number"
+        [formControl]="newCard.controls['card']"
+        ccNumber
+      />
+    </div>
+    <div class="add-credit-wr add-credit-info">
+      <div class="add-credit-wr--mm">
+        <label class="add-credit-wr-label">Срок действия: месяц</label>
+        <input type="tell"
+               placeholder="ММ"
+               [formControl]="newCard.controls['MM']"
+        />
+      </div>
+      <div class="add-credit-wr--yyyy">
+        <label class="add-credit-wr-label">Срок действия: год</label>
+        <input type="number"
+               placeholder="YYYY"
+               maxLength="4"
+               [formControl]="newCard.controls['YYYY']"
+        />
+      </div>
+      <div class="add-credit-wr--cvv">
+        <label class="add-credit-wr-label">CVV</label>
+        <input
+          type="password"
+          autocomplete="cc-cvc"
+          id="cc-cvc"
+          placeholder="Ex.331"
+          [formControl]="newCard.controls['CVV']"
+          ccCvc
+        />
+      </div>
+    </div>
+    <div class="add-credit-wr add-credit-info setting-wr-check">
+      <div class="add-credit-wr setting-checkbox add-credit-wr--checkbox">
+        <input type="checkbox" class="checkbox" id="checkbox-2"/>
+        <label for="checkbox-2" class="add-credit-wr--checkbox-label setting-checkbox-label" (click)="isDefault()">Новости компании</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <a class="btn form-wrapper__btn" (click)="onSubmit()">сохранить</a>
+      <a class="btn form-wrapper__btn" (click)="addCardShow()">отмена</a>
+    </div>
+  </form>
+</div>
+<ul *ngIf="!showCard">
+  <li *ngFor="let card of cards">
+    {{ card.name }}
+    <a (click)="deleteCard(card.id)" class="btn">Delte</a>
+  </li>
+</ul>

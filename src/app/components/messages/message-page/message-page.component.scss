@@ -1,0 +1,68 @@
+.message-navigation__back__toogle {
+  font-size: 18px;
+  color: #a0a0a0;
+}
+.message-page {
+
+  &__container {
+    border: 1px solid #d0d0d0;
+    border-radius: 10px;
+    padding: 0;
+    padding-bottom: 25px;
+  }
+
+  &-input {
+    padding: 0;
+    margin-top: 25px;
+  }
+
+  &-head {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #d0d0d0;
+    padding-left: 15px;
+
+    &__object {
+      color: #ff6551;
+      font-size: 18px;
+      text-decoration: underline;
+      font-family: open-sans-bold, sans-serif;
+      margin: 0;
+    }
+  }
+
+  &-content {
+
+    &-partner {
+      padding-left: 15px;
+      padding-top: 15px;
+
+      &__info {
+
+        &__name {
+          color: #494949;
+          font-size: 18px;
+          font-family: open-sans-bold, sans-serif;
+          margin: 0;
+        }
+
+        &__date {
+          color: #a0a0a0;
+          font-size: 14px;
+        }
+      }
+
+      &__message {
+        background: #efefef;
+        border-radius: 10px;
+        padding: 16px;
+
+        &__text {
+          margin: 0;
+          color: #494949;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

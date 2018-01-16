@@ -1,0 +1,19 @@
+<div class="loading">
+  <mat-progress-spinner
+    class="example-margin"
+    mode="indeterminate"
+    *ngIf="!loading">
+  </mat-progress-spinner>
+</div>
+
+<ul class="timeline-list" *ngIf="trackingList">
+  <li class="timeline-list-item" *ngFor="let track of trackingList; let i = index">
+    <i class="tmicon" [ngClass]="{'tmicon--active': i === 0}"></i>
+    <div class="timeline-list-item-label">
+      <p class="timeline-list-item-label__text">{{ track.event }}</p>
+      <p class="timeline-list-item-label__date">
+        {{ track.date }}, {{ track.time }}, {{ track.city }}
+      </p>
+    </div>
+  </li>
+</ul>

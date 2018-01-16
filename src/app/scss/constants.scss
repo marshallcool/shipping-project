@@ -1,0 +1,100 @@
+$primary-color: #f76451;
+$white: #fefefe;
+$primary-dark: #323044;
+$primary-dark-hover: #433f61;
+
+$dark-blue:#323044;
+$bright-blue: #433f61;
+
+$dark-orange: #f76451;
+$bright-orange: #fa8779;
+$dark-gray: #a1a1a1;
+$gray: #efefef;
+$bright-gray: #f9f9f9;
+
+
+/**
+ * LINKS
+ */
+
+$link-dark: $white;
+$link-dark-hover: $dark-gray;
+$link-dark-under: $dark-orange;
+$link-dark-under-hover: $bright-orange;
+
+$link-white: $dark-blue;
+$link-white-hover: $dark-orange;
+$link-white-under: $dark-orange;
+$link-white-under-hover: $bright-orange;
+
+$black-87-opacity: rgba(black, 0.87);
+$white-87-opacity: rgba(white, 0.87);
+$black-12-opacity: rgba(black, 0.12);
+$white-12-opacity: rgba(white, 0.12);
+$black-6-opacity: rgba(black, 0.06);
+$white-6-opacity: rgba(white, 0.06);
+
+$wd-blue: (
+  50: $dark-orange,
+  100: $dark-orange,
+  200: $dark-orange,
+  300: $dark-orange,
+  400: $dark-orange,
+  500: $dark-orange,
+  600: $dark-orange,
+  700: $dark-orange,
+  800: $dark-orange,
+  900: $dark-orange,
+  A100: $dark-orange,
+  A200: $dark-orange,
+  A400: $dark-orange,
+  A700: $dark-orange,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: $white-87-opacity,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+$wd-orange: (
+  50: #f9a828,
+  100: #f9a828,
+  200: #f9a828,
+  300: #f9a828,
+  400: #f9a828,
+  500: #f9a828,
+  600: #f9a828,
+  700: #f9a828,
+  800: #f9a828,
+  900: #f9a828,
+  A100: #f9a828,
+  A200: #f9a828,
+  A400: #f9a828,
+  A700: #f9a828,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: $white-87-opacity,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);

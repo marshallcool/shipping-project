@@ -1,0 +1,72 @@
+<div class="packaging">
+  <div class="container">
+    <div class="row packaging-row">
+      <div class="col-md-12">
+        <p class="search__title">выбор посылки</p>
+      </div>
+      <div class="search">
+        <i aria-hidden="true" class="fa fa-search"></i>
+        <input placeholder="Поиск посылки" [(ngModel)]="parcel" class="form-control search__input" type="text">
+      </div>
+      <table matSort (matSortChange)="sortData($event)" class="myorders-table">
+        <tr class="myorders-table__tr">
+          <th class="text-center myorders-table__th" mat-sort-header="object">{{ 'TableParcel.1' | translate }}</th>
+          <th class="text-center myorders-table__th" mat-sort-header="total_price">цена</th>
+          <th class="text-center myorders-table__th" mat-sort-header="weight">вес</th>
+          <th class="text-center myorders-table__th" mat-sort-header="created">дата</th>
+          <th class="text-center myorders-table__th" mat-sort-header="declaration">Декларация</th>
+          <th class="text-center myorders-table__th" mat-sort-header="status">статус</th>
+          <th class="text-center myorders-table__th" mat-sort-header="pay">доставка</th>
+          <th class="text-center myorders-table__th"></th>
+        </tr>
+      </table>
+      <div class="packaging" style="width: 100%;">
+        <mat-expansion-panel *ngFor="let parcel of parcels | filter : parcel; let i = index">
+          <mat-expansion-panel-header (click)="selectParcel(parcel)" [expandedHeight]="expandedHeight" [collapsedHeight]="collapsedHeight">
+            <mat-panel-title>
+              <div class="packaging__item">
+                <p class="packaging__item__obj">{{parcel.object}}</p>
+              </div>
+              <div class="packaging__item">
+                <p class="packaging__item__header">{{parcel.total_price}}</p>
+              </div>
+              <div class="packaging__item">
+                <p class="packaging__item__header">{{parcel.weight}}</p>
+              </div>
+              <div class="packaging__item packaging__item--date">{{parcel.created}}</div>
+              <div class="packaging__item" *ngIf="parcel.declaration">
+                <span class="packaging__item__option" *ngIf="!parcel.rename">Заполнена</span>
+                <span class="packaging__item__rename" *ngIf="parcel.rename">Название товара</span>
+              </div>
+              <div class="packaging__item" *ngIf="!parcel.declaration">
+                <a href="#" class="btn" *ngIf="!parcel.rename">заполнить</a>
+                <span class="packaging__item__rename" *ngIf="parcel.rename">Название товара</span>
+              </div>
+              <div class="packaging__item">
+                <span class="packaging__item__option" *ngIf="!parcel.rename">{{parcel.status}}</span>
+                <span class="packaging__item__rename" *ngIf="parcel.rename">Трек-Номер</span>
+              </div>
+              <div class="packaging__item">
+                <mat-checkbox *ngIf="!parcel.rename"></mat-checkbox>
+                <span class="packaging__item__rename" *ngIf="parcel.rename">Номер заказа</span>
+              </div>
+              <a class="packaging__item" href="#" [routerLink]="['/messages/message', parcel.id]">
+                <img src="../../../../../assets/images/orders/mail.png" class="mail" alt="">
+              </a>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="packaging-content" *ngFor="let goods of parcel.orders || parcel.forwardings">
+            <img src="../../../../../assets/images/orders/preview.png" class="packaging-content__item">
+            <p class="packaging-content__item">{{goods.object}}</p>
+            <p class="packaging-content__item">{{goods.price || goods.total_price || goods.value}}</p>
+            <p class="packaging-content__item">{{goods.weight || goods.weight_oz}}</p>
+            <p class="packaging-content__item">{{goods.created}}</p>
+            <p class="packaging-content__item">{{goods.description || goods.title}}</p>
+            <p class="packaging-content__item packaging-content__item--tracking">{{goods.tracking_number}}</p>
+            <p class="packaging-content__item">{{goods.parcel_id}}</p>
+          </div>
+        </mat-expansion-panel>
+      </div>
+    </div>
+  </div>
+</div>

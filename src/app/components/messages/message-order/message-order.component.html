@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="wrap-load">
+        <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+      </div>
+    </div>
+  </div>
+</div>
+<app-message-table [messages]="messages"></app-message-table>

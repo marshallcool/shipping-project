@@ -1,0 +1,105 @@
+.calculate-orders {
+    width: 100%;
+    height: 100%;
+    margin-left: 15px;
+    margin-right: 15px;
+    display: inherit;
+    border-radius: 10px;
+    margin-top: 25px;
+    margin-bottom: 40px;
+    &__menu {
+      padding-left: 0;
+      padding-right: 0px;
+      width: 300px;
+      z-index: 0;
+    }
+    &__content {
+      background: #fff;
+      box-shadow: 9px 1px 21px -5px #ccc;
+      border-radius: 10px;
+      border-top-left-radius: 0;
+      padding-left: 45px;
+      padding-top: 67px;
+      width: 100%;
+      z-index: 1;
+      &-help {
+        display: inline-block;
+        width: 304px;
+        padding: 11px;
+        border-radius: 10px;
+        vertical-align: top;
+        margin-left: 0px;
+        background: #efefef;
+        p {
+          margin: 0;
+          font-size: 14px;
+          font-family: open-sans-light;
+        }
+      }
+      &-form {
+        display: inline-block;
+        width: 500px;
+        .form-group {
+          &:nth-child(3) {
+            margin-bottom: 20px;
+          }
+          &--inline {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            .data-error {
+              width: 100%;
+              text-align: right;
+              margin-right: 143px;
+              margin-top: 9px;
+            }
+            .material-input {
+              width: 230px;
+            }
+          }
+        }
+        .material-input {
+          width: 100%;
+          height: 57px;
+          &.hovered {
+            .input-control {
+              padding-top: 21px;
+            }
+            span {
+              top: 5px !important;
+              color: #a0a0a0;
+            }
+          }
+          span {
+            font-size: 12px;
+            top: 30%;
+          }
+        }
+      }
+    }
+    &__link {
+      padding: 33px 14px;
+      display: block;
+      background: #f9f9f9;
+      z-index: 0;
+      margin-right: -9px;
+      text-align: center;
+      box-shadow: -3px 1px 21px -5px #ccc;
+      border-radius: 10px;
+      p {
+        color: #424242;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-family: intro;
+      }
+      &:hover {
+        text-decoration: none;
+      }
+      &--active {
+        background: #fff;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px; // box-shadow: -5px 4px 12px -9px #000;
+        position: relative;
+      }
+    }
+  }
