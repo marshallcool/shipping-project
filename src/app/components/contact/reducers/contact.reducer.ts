@@ -12,35 +12,20 @@ const initialState = {
 export function contacts(state = initialState, action: ContactActions) {
   switch (action.type) {
     case ContactActionTypes.GetContact:
-      return {
-        ...state,
-        pending: true,
-        error: null
-      };
-    case ContactActionTypes.GetContactSuccess:
-      return {
-        ...state,
-        data: action.payload,
-        pending: false
-      };
-    case ContactActionTypes.GetContactError:
-      return {
-        ...state,
-        pending: false,
-        error: action.payload.message
-      };
     case ContactActionTypes.AddContact:
       return {
         ...state,
         pending: true,
         error: null
       };
+    case ContactActionTypes.GetContactSuccess:
     case ContactActionTypes.AddContactSuccess:
       return {
         ...state,
         data: action.payload,
         pending: false
       };
+    case ContactActionTypes.GetContactError:
     case ContactActionTypes.AddContactError:
       return {
         ...state,

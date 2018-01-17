@@ -17,7 +17,7 @@ export class ContactService {
 
   getThemes(): Observable<Contact[]> {
     return this.http
-      .get<Contact[]>(`${apiHost}/back/message/all`)
+      .get<Contact[]>(`${apiHost}/back/support/subjects`)
         .pipe(
           catchError((error) => {
               this.apiErrorHandleService.handle(error);
@@ -28,7 +28,7 @@ export class ContactService {
 
   sendMessage(data): Observable<Contact> {
     return this.http
-      .post<Contact>(`${apiHost}/back/message/all`, data)
+      .post<Contact>(`${apiHost}/back/support/send`, data)
         .pipe(
           catchError((error) => {
               this.apiErrorHandleService.handle(error);

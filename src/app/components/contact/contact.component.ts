@@ -1,6 +1,8 @@
 import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import { MatSnackBar } from '@angular/material';
+
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
@@ -14,47 +16,57 @@ import * as contact from './actions/contact';
 })
 export class ContactComponent implements OnInit, AfterContentInit {
   contactForm: FormGroup;
-  themes: any;
-  todos: Observable<any>;
+  themes: Observable<any>;
+  loading: boolean;
 
   constructor(private fb: FormBuilder,
               private contactService: ContactService,
-              private store: Store<any>) {
-    this.todos = store.select('contacts').map(({data}) => data.messages);
+              private store: Store<any>,
+              private snackBar: MatSnackBar
+            ) {
+    this.themes = store.select('contacts').map(({data}) => data.themes);
+    store.select('contacts')
+      .subscribe(loading => {
+        this.loading = true;
+        if (loading.data.themes || loading.data.subject_id) {
+          this.loading = false;
+        }
+      });
   }
 
   ngOnInit() {
     this.store.dispatch(new contact.GetContact());
     this.initForm();
-    this.themes = [
-      {
-        id: 1,
-        value: 'theme 1'
-      },
-      {
-        id: 2,
-        value: 'theme 2'
-      }
-    ];
   }
 
   initForm() {
     this.contactForm = this.fb.group({
-      theme: ['', Validators.required],
-      name: ['', Validators.required],
+      subject_id: ['', Validators.required],
+      name: [''],
       email: ['', [Validators.required, Validators.email]],
       message: ['', Validators.required]
     });
   }
 
   onSubmit() {
-    this.store.dispatch(new contact.AddContact(this.contactForm.value));
+    if (this.contactForm.valid) {
+      this.store.dispatch(new contact.AddContact(this.contactForm.value));
+      this.contactForm.reset();
+    } else {
+      this.loading = false;
+        this.snackBar.open('Не все поля заполненны', '', {
+          verticalPosition: 'top',
+          horizontalPosition: 'right',
+          extraClasses: [ 'warning-bar' ],
+          duration: 3000,
+        });
+    }
   }
 
   onChange(data) {
     if (data) {
       this.contactForm.patchValue({
-        theme: data.value.value
+        subject_id: data.value.id
       });
     }
   }

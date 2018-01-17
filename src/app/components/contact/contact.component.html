@@ -1,4 +1,17 @@
-<div class="affiliate_program">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="loading">
+        <mat-progress-spinner
+          class="example-margin"
+          mode="indeterminate"
+          *ngIf="loading">
+        </mat-progress-spinner>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="affiliate_program" *ngIf="!loading">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -6,15 +19,10 @@
       </div>
       <div class="col-md-7">
         <form class="contact-form__block" [formGroup]="contactForm" (submit)="onSubmit()">
-          <!--<select class="select-contact" (change)="onChange($event)" style="width: 100%">-->
-          <!--<option *ngFor="let theme of themes" [value]="themes">-->
-          <!--{{ theme.value }}-->
-          <!--</option>-->
-          <!--</select>-->
           <mat-form-field>
             <mat-select placeholder="Выберите тему" (change)="onChange($event)">
-              <mat-option *ngFor="let theme of themes" [value]="theme">
-                {{ theme.value }}
+              <mat-option *ngFor="let theme of themes | async" [value]="theme">
+                {{ theme.theme }}
               </mat-option>
             </mat-select>
           </mat-form-field>
@@ -56,7 +64,4 @@
     </div>
   </div>
 </div>
-<ul>
-  <li *ngFor='let todo of todos | async'>{{ todo.message }}</li>
-</ul>
 <app-footer></app-footer>
