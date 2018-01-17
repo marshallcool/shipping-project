@@ -56,5 +56,7 @@
     </div>
   </div>
 </div>
+<ul>
+  <li *ngFor='let todo of todos | async'>{{ todo.message }}</li>
+</ul>
 <app-footer></app-footer>
-

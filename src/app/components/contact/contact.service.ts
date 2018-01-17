@@ -17,18 +17,24 @@ export class ContactService {
 
   getThemes(): Observable<Contact[]> {
     return this.http
-      .get<Contact[]>(`${apiHost}/back/message/all`);
+      .get<Contact[]>(`${apiHost}/back/message/all`)
+        .pipe(
+          catchError((error) => {
+              this.apiErrorHandleService.handle(error);
+              return Observable.throw(error);
+            })
+        );
   }
 
-  sendMessage(data): Observable<Contact[]> {
+  sendMessage(data): Observable<Contact> {
     return this.http
-      .post<Contact[]>(`${apiHost}/back/user/register`, data)
-      .pipe(
-        catchError((e) => {
-          this.apiErrorHandleService.handle(e);
-          return Observable.throw(e);
-        })
-      );
+      .post<Contact>(`${apiHost}/back/message/all`, data)
+        .pipe(
+          catchError((error) => {
+              this.apiErrorHandleService.handle(error);
+              return Observable.throw(error);
+            })
+        );
   }
 
 }

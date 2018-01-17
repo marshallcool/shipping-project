@@ -1,10 +1,11 @@
 import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ContactService } from './contact.service';
 
 import { Store } from '@ngrx/store';
-import { getContacts } from './reducers/contact.reducer';
 import { Observable } from 'rxjs/Observable';
+
+import { ContactService } from './contact.service';
+import * as contact from './actions/contact';
 
 @Component({
   selector: 'app-contact',
@@ -19,13 +20,12 @@ export class ContactComponent implements OnInit, AfterContentInit {
   constructor(private fb: FormBuilder,
               private contactService: ContactService,
               private store: Store<any>) {
-    this.todos = store.select('contacts').map(({data}) => Object.values(data));
+    this.todos = store.select('contacts').map(({data}) => data.messages);
   }
 
   ngOnInit() {
-    this.store.dispatch(getContacts());
+    this.store.dispatch(new contact.GetContact());
     this.initForm();
-    // this.contactService.getThemes().subscribe(themes => this.themes = themes);
     this.themes = [
       {
         id: 1,
@@ -48,11 +48,7 @@ export class ContactComponent implements OnInit, AfterContentInit {
   }
 
   onSubmit() {
-    console.log(this.contactForm.value);
-    // this.contactService.sendMessage(this.contactForm.value)
-    //   .subscribe(contact => {
-    //     ...
-    //   })
+    this.store.dispatch(new contact.AddContact(this.contactForm.value));
   }
 
   onChange(data) {
