@@ -1,5 +1,5 @@
 const cnst = {
-  API_URL: 'https://expressfromus.com/api/v1',
+  API_URL: '',
 
   URLS: {
     index: '/',
