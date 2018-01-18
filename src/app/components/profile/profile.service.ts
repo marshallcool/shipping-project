@@ -2185,4 +2185,18 @@ export class ProfileService {
       });
   }
 
+  getAddressPersonal(): Observable<any> {
+    return this.http.get(`${apiHost}/back/address/usa`)
+      .map(res => {
+        if (res) {
+          this.storageService.set('personalAddress', (res as any).requestId);
+        }
+        return res;
+      })
+      .catch((e): any => {
+        this.apiErrorHandleService.handle(e);
+        return Observable.throw(e);
+      });
+  }
+
 }

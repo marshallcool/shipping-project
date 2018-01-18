@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import {Sort} from '@angular/material';
 
+import { OrderService } from '../../order/order.service';
+
 @Component({
   selector: 'app-packed',
   templateUrl: './packed.component.html',
@@ -15,6 +17,7 @@ export class PackedComponent implements OnInit {
   collapsedHeight: string;
 
   constructor(
+    private orderService: OrderService
   ) {}
 
   selectParcel(item) {
@@ -26,6 +29,8 @@ export class PackedComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.orderService.getParcelsPacked()
+      .subscribe(x => console.log((x as any).parcels))
     this.expandedHeight = '70px';
     this.collapsedHeight = '70px';
     this.parcels =  [

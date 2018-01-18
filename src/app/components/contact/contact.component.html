@@ -8,9 +8,17 @@
           *ngIf="loading">
         </mat-progress-spinner>
       </div>
+      <div class="loading">
+        <mat-progress-spinner
+          class="example-margin"
+          mode="indeterminate"
+          *ngIf="!success">
+        </mat-progress-spinner>
+      </div>
     </div>
   </div>
 </div>
+<!--<p *ngIf="!success">asd</p>-->
 <div class="affiliate_program" *ngIf="!loading">
   <div class="container">
     <div class="row">
@@ -28,13 +36,13 @@
           </mat-form-field>
           <div class="contact-form">
             <div class="contact-form__input">
-              <label class="material-input">
+              <label class="material-input" [ngClass]="{'hovered':contactForm.controls['name'].value}">
                 <span>Имя</span>
                 <input class="input-control" type="text" formControlName="name" />
               </label>
             </div>
             <div class="contact-form__input">
-              <label class="material-input">
+              <label class="material-input" [ngClass]="{'hovered':contactForm.controls['email'].value}">
                 <span>Электронная почта</span>
                 <input class="input-control" type="text" formControlName="email" />
               </label>
@@ -42,7 +50,7 @@
               </label>
             </div>
             <div class="contact-form__text">
-              <label class="material-input">
+              <label class="material-input" [ngClass]="{'hovered':contactForm.controls['message'].value}">
                 <span>Комментарий</span>
                 <textarea formControlName="message" class="input-control" name="" id="" rows="2"></textarea>
               </label>

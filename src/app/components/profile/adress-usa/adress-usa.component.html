@@ -5,7 +5,7 @@
         Имя
       </p>
       <p class="adress-item__text">
-        Julja
+        {{ addressDE?.first_name }}
       </p>
     </div>
     <div class="adress-item" fxLayoutAlign="baseline center" fxLayout="wrap">
@@ -13,7 +13,7 @@
         Фамилия
       </p>
       <p class="adress-item__text">
-        Maslova
+        {{ addressDE?.last_name }}
       </p>
     </div>
     <div class="adress-item" fxLayout="wrap" fxLayoutAlign="baseline center">
@@ -21,7 +21,7 @@
         Адрес 1
       </p>
       <p class="adress-item__text">
-        111 Buck Rd
+        {{ addressDE?.address1 }}
       </p>
     </div>
     <div class="adress-item" fxLayoutAlign="baseline center" fxLayout="wrap">
@@ -29,7 +29,7 @@
         Адрес 2
       </p>
       <p class="adress-item__text">
-        Unit 1100-185805
+        {{ addressDE?.address2 }}
       </p>
     </div>
     <div class="adress-item" fxLayoutAlign="baseline center" fxLayout="wrap">
@@ -37,7 +37,7 @@
         Город
       </p>
       <p class="adress-item__text">
-        Huntingdon Valley
+        {{ addressDE?.city }}
       </p>
     </div>
     <div class="adress-item" fxLayoutAlign="baseline center" fxLayout="wrap">
@@ -45,7 +45,7 @@
         Штат
       </p>
       <p class="adress-item__text">
-        Pennsylvania (PA)
+        {{ addressDE?.state }}
       </p>
     </div>
     <div class="adress-item" fxLayoutAlign="baseline center" fxLayout="wrap">
@@ -53,7 +53,7 @@
         Почтовый индекс
       </p>
       <p class="adress-item__text">
-        19006-1546
+        {{ addressDE?.postal_code }}
       </p>
     </div>
     <div class="adress-item" fxLayoutAlign="baseline center" fxLayout="wrap">
@@ -61,7 +61,7 @@
         Телефон
       </p>
       <p class="adress-item__text">
-        923 182 20 89
+        {{ addressDE?.phone }}
       </p>
     </div>
   </div>
@@ -71,7 +71,7 @@
         Имя
       </p>
       <p class="adress-item__text">
-        Julja
+        {{ addressPA?.first_name }}
       </p>
     </div>
     <div class="adress-item" fxLayoutAlign="baseline center" fxLayout="wrap">
@@ -79,7 +79,7 @@
         Фамилия
       </p>
       <p class="adress-item__text">
-        Maslova
+        {{ addressPA?.last_name }}
       </p>
     </div>
     <div class="adress-item" fxLayout="wrap" fxLayoutAlign="baseline center">
@@ -87,7 +87,7 @@
         Адрес 1
       </p>
       <p class="adress-item__text">
-        111 Buck Rd
+        {{ addressPA?.address1 }}
       </p>
     </div>
     <div class="adress-item" fxLayoutAlign="baseline center" fxLayout="wrap">
@@ -95,7 +95,7 @@
         Адрес 2
       </p>
       <p class="adress-item__text">
-        Unit 1100-185805
+        {{ addressPA?.address2 }}
       </p>
     </div>
     <div class="adress-item" fxLayoutAlign="baseline center" fxLayout="wrap">
@@ -103,7 +103,7 @@
         Город
       </p>
       <p class="adress-item__text">
-        Huntingdon Valley
+        {{ addressPA?.city }}
       </p>
     </div>
     <div class="adress-item" fxLayoutAlign="baseline center" fxLayout="wrap">
@@ -111,7 +111,7 @@
         Штат
       </p>
       <p class="adress-item__text">
-        Pennsylvania (PA)
+        {{ addressPA?.state }}
       </p>
     </div>
     <div class="adress-item" fxLayoutAlign="baseline center" fxLayout="wrap">
@@ -119,7 +119,7 @@
         Почтовый индекс
       </p>
       <p class="adress-item__text">
-        19006-1546
+        {{ addressPA?.postal_code }}
       </p>
     </div>
     <div class="adress-item" fxLayoutAlign="baseline center" fxLayout="wrap">
@@ -127,7 +127,7 @@
         Телефон
       </p>
       <p class="adress-item__text">
-        923 182 20 89
+        {{ addressPA?.phone }}
       </p>
     </div>
   </div>

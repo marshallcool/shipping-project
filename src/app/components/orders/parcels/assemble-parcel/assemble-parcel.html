@@ -75,7 +75,9 @@
         </mat-expansion-panel>
         <table matSort (matSortChange)="sortData($event)" class="myorders-table">
           <tr class="myorders-table__tr">
-            <th class="text-center myorders-table__th"><mat-checkbox (click)="onSendAllAdd()"></mat-checkbox></th>
+            <th class="text-center myorders-table__th">
+              <!--<mat-checkbox (click)="onSendAllAdd()"></mat-checkbox>-->
+            </th>
             <th class="text-center myorders-table__th"></th>
             <th class="text-center myorders-table__th" mat-sort-header="object">{{ 'TableParcel.1' | translate }}</th>
             <th class="text-center myorders-table__th" mat-sort-header="name">{{ 'TableParcel.3' | translate }}</th>
@@ -145,7 +147,9 @@
           </mat-expansion-panel>
           <table matSort (matSortChange)="sortData($event)" class="myorders-table">
             <tr class="myorders-table__tr">
-              <th class="text-center myorders-table__th"><mat-checkbox (click)="onSendAllRemove()"></mat-checkbox></th>
+              <th class="text-center myorders-table__th">
+                <!--<mat-checkbox (click)="onSendAllRemove()"></mat-checkbox>-->
+              </th>
               <th class="text-center myorders-table__th"></th>
               <th class="text-center myorders-table__th" mat-sort-header="object">{{ 'TableParcel.1' | translate }}</th>
               <th class="text-center myorders-table__th" mat-sort-header="name">{{ 'TableParcel.3' | translate }}</th>

@@ -63,6 +63,8 @@ export class OrderAddFormComponent implements OnInit, AfterContentInit {
     }
     if (this.newParcel.valid) {
       this.addOrder.emit(this.newParcel.value);
+      this.orderService.addParcel(this.newParcel.value)
+        .subscribe(x => console.log(x));
       this.newParcel.reset();
       this.snackBar.open('Успешно добавлено', '', {
         verticalPosition: 'top',

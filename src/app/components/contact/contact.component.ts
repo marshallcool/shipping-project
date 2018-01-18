@@ -18,6 +18,7 @@ export class ContactComponent implements OnInit, AfterContentInit {
   contactForm: FormGroup;
   themes: Observable<any>;
   loading: boolean;
+  success: boolean;
 
   constructor(private fb: FormBuilder,
               private contactService: ContactService,
@@ -28,8 +29,21 @@ export class ContactComponent implements OnInit, AfterContentInit {
     store.select('contacts')
       .subscribe(loading => {
         this.loading = true;
+        if (loading.success === undefined) {
+          this.success = true;
+        } else {
+          this.success = loading.success;
+          if (this.success) {
+            this.snackBar.open('Сообщение отправлено', '', {
+              verticalPosition: 'top',
+              horizontalPosition: 'right',
+              extraClasses: [ 'success-bar' ],
+              duration: 3000,
+            });
+          }
+        }
         if (loading.data.themes || loading.data.subject_id) {
-          this.loading = false;
+          this.loading = false
         }
       });
   }

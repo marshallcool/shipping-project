@@ -43,7 +43,15 @@
                 <span class="packaging__item__rename" *ngIf="parcel.rename">Название товара</span>
               </div>
               <div class="packaging__item">
-                <span class="packaging__item__option" *ngIf="!parcel.rename">{{parcel.status}}</span>
+                <span class="packaging__item__option" *ngIf="!parcel.rename">
+                  <p *ngIf="parcel.status === 0">на складе (ожидают упаковки)</p>
+                  <p *ngIf="parcel.status === 1">упаковывается</p>
+                  <p *ngIf="parcel.status === 2">собраны и не оплачены</p>
+                  <p *ngIf="parcel.status === 3">собраны и оплачены</p>
+                  <p *ngIf="parcel.status === 4">отправлены</p>
+                  <p *ngIf="parcel.status === 5">разобрана</p>
+                  <p *ngIf="parcel.status === 6">доставлены все элементы посылки</p>
+                </span>
                 <span class="packaging__item__rename" *ngIf="parcel.rename">Трек-Номер</span>
               </div>
               <div class="packaging__item">

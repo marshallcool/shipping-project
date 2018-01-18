@@ -35,7 +35,7 @@ export class ContactEffects {
     .switchMap(action =>
       this.contactService.getThemes()
         .pipe(
-          map(todos => new GetContactSuccess(todos)),
+          map(themes => new GetContactSuccess(themes)),
           catchError((e) => of(new GetContactError(e)))
         )
     );
@@ -44,10 +44,10 @@ export class ContactEffects {
     addContact$: Observable<Action> = this.actions$
       .ofType(ContactActionTypes.AddContact)
       .map((action: AddContact) => action.payload)
-      .mergeMap(todo =>
-        this.contactService.sendMessage(todo)
+      .mergeMap(contact =>
+        this.contactService.sendMessage(contact)
           .pipe(
-            map(() => new AddContactSuccess(todo)),
+            map(() => new AddContactSuccess(contact)),
             catchError((e) => of(new AddContactError(e)))
           )
       );
