@@ -1,0 +1,211 @@
+.affiliate_program {
+
+  &__title {
+    font-size: 60px;
+    color: #a0a0a0;
+    font-family: intro, sans-serif;
+    margin-top: 35px;
+    @media screen and (max-width: 475px) {
+      font-size: 25px;
+    }
+  }
+
+  &-benefit {
+    &__title {
+      font-size: 18px;
+      font-family: intro, sans-serif;
+      color: #44415f;
+      @media screen and (max-width: 475px) {
+        font-size: 14px;
+      }
+    }
+    &__list {
+      list-style-type: disc;
+      padding-left: 20px;
+
+      &__item {
+        font-size: 18px;
+        @media screen and (max-width: 475px) {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  &-sale {
+    background: #f26659;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    &__btn {
+      background: #ff8e80;
+      padding: 20px 45px;
+      @media screen and (max-width: 391px) {
+        padding: 20px 11px;
+      }
+    }
+    &-top {
+      display: flex;
+      justify-content: space-around;
+      max-width: 1000px;
+      margin: 0 auto;
+      align-items: center;
+      @media screen and (max-width: 925px) {
+        flex-wrap: wrap;
+        align-items: flex-end;
+      }
+      p {
+        margin: 0;
+        color: #ffffff;
+        font-size: 55px;
+        font-family: intro, sans-serif;
+        padding-top: 20px;
+        @media screen and (max-width: 768px) {
+          font-size: 40px;
+        }
+        @media screen and (max-width: 475px) {
+          font-size: 15px;
+          padding: 0;
+        }
+      }
+    }
+    &-bottom {
+      width: 93%;
+      text-align: center;
+      margin-top: 25px;
+      @media screen and (max-width: 391px) {
+        width: 100%;
+      }
+    }
+    &__value {
+      border: 8px solid #fff;
+      border-radius: 50%;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 20px;
+      padding-bottom: 8px;
+      @media screen and (max-width: 475px) {
+        border: none;
+        padding: 0;
+      }
+    }
+    &__icon {
+      font-family: open-sans-bold, sans-serif;
+
+      &__before {
+        width: 30%;
+        padding-top: 10px;
+        @media screen and (max-width: 475px) {
+          padding: 0;
+          width: 17%;
+        }
+      }
+      &__after {
+        width: 9%;
+        @media screen and (max-width: 475px) {
+          width: 5%;
+        }
+      }
+    }
+    &__container {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+  }
+
+  &-feature {
+
+    &__step {
+      margin: 0;
+      @media screen and (max-width: 391px) {
+        font-size: 13px;
+      }
+    }
+
+    &__title {
+      color: #44415f;
+      font-family: intro, sans-serif;
+      font-size: 18px;
+      @media screen and (max-width: 391px) {
+        font-size: 16px;
+      }
+    }
+
+    &__text {
+      margin-bottom: 30px;
+      font-family: open-sans-light, sans-serif;
+      @media screen and (max-width: 391px) {
+        font-size: 14px;
+      }
+    }
+
+    &-block {
+      margin-top: 20px;
+    }
+
+    &__line {
+      width: 100%;
+      height: 2px;
+      margin-bottom: 35px;
+      background: #d0d0d0;
+      display: block;
+    }
+  }
+
+  &-info {
+    background: #efefef;
+    padding-top: 45px;
+    padding-bottom: 45px;
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+
+    &__desc {
+      margin-top: 35px;
+      font-family: open-sans-light, sans-serif;
+      @media screen and (max-width: 391px) {
+        margin-top: 0;
+      }
+    }
+
+    &__x {
+      font-family: open-sans-bold, sans-serif;
+      padding-bottom: 22px;
+      margin-right: 7px;
+      margin-left: 7px;
+    }
+
+    &__smooth {
+      font-family: open-sans-bold, sans-serif;
+      margin-right: 7px;
+      padding-bottom: 10px;
+      margin-left: 7px;
+    }
+
+    &-block {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    &__text {
+      font-family: intro, sans-serif;
+      color: #cfcfcf;
+      font-size: 61px;
+      display: flex;
+      align-items: center;
+      margin: 0;
+      &__before {
+        font-size: 15px;
+        color: #848484;
+        position: relative;
+        left: -21px;
+        top: -2px;
+      }
+    }
+  }
+}

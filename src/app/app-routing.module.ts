@@ -3,6 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { GuardService } from './services/guard.service';
 import { CoreModule } from './services/core.module';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ServicesComponent } from "./components/services/services.component";
+import { AffiliateProgramComponent } from "./components/affiliate-program/affiliate-program.component";
+import { ShopsComponent } from "./components/shops/shops.component";
 
 const routes: Routes = [
   {
@@ -46,6 +49,18 @@ const routes: Routes = [
   {
     path: '404',
     component: NotFoundComponent
+  },
+  {
+    path: 'services',
+    component: ServicesComponent
+  },
+  {
+    path: 'affiliate_program',
+    component: AffiliateProgramComponent
+  },
+  {
+    path: 'shops',
+    component: ShopsComponent
   },
   {path: '**', redirectTo: '/404'}
 ];

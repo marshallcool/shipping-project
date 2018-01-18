@@ -25,12 +25,19 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { contacts } from './components/contact/reducers/contact.reducer';
+import { ServicesComponent } from './components/services/services.component';
+import { AffiliateProgramComponent } from './components/affiliate-program/affiliate-program.component';
+import { ShopsComponent } from './components/shops/shops.component';
+import { CalculatorModule } from "./components/orders/calculator/calculator.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoaderBarComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ServicesComponent,
+    AffiliateProgramComponent,
+    ShopsComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +52,7 @@ import { contacts } from './components/contact/reducers/contact.reducer';
       maxAge: 25
     }),
     AppRoutingModule,
+    CalculatorModule,
     CoreModule,
     TranslateModule.forRoot({
       loader: {
