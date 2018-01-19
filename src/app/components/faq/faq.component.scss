@@ -1,0 +1,76 @@
+.faq {
+
+  &__input {
+    width: 100%;
+    border: 1px solid #efefef;
+    border-radius: 10px;
+    padding: 9px;
+    background: #efefef;
+    padding-left: 39px;
+  }
+
+  &__icon {
+    padding-top: 11px;
+    color: #b0b0b0 !important;
+  }
+}
+.help {
+
+  margin-top: 60px;
+
+  &__item {
+    padding-bottom: 15px;
+
+    &__icon {
+      color: #a0a0a0;
+      font-size: 10px;
+      &--active {
+        color: #ff604b;
+      }
+    }
+
+    &__btn {
+      color: #a0a0a0;
+      font-family: open-sans-regular, sans-serif;
+      &--active {
+        color: #ff604b;
+      }
+    }
+  }
+
+  &-menu {
+
+    &__link {
+      color: #000000;
+      font-family: open-sans-regular, sans-serif;
+      font-size: 18px;
+
+      &--active {
+        color: #f76451;
+      }
+    }
+  }
+}
+.card-header {
+  border: none;
+  border-radius: 10px !important;
+  background: #efefef;
+}
+.card {
+  margin-bottom: 20px;
+  border: none;
+}
+.card-block {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1.25rem;
+}
+.internal-page__name {
+  font-size: 3.75rem;
+  color: #a0a0a0;
+  text-transform: uppercase;
+  font-family: intro, sans-serif;
+  margin-top: 27px;
+}

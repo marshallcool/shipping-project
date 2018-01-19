@@ -6,6 +6,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ServicesComponent } from "./components/services/services.component";
 import { AffiliateProgramComponent } from "./components/affiliate-program/affiliate-program.component";
 import { ShopsComponent } from "./components/shops/shops.component";
+import { FaqComponent } from "./components/faq/faq.component";
+import { RatesComponent } from "./components/rates/rates.component";
 
 const routes: Routes = [
   {
@@ -61,6 +63,14 @@ const routes: Routes = [
   {
     path: 'shops',
     component: ShopsComponent
+  },
+  {
+    path: 'faq',
+    component: FaqComponent
+  },
+  {
+    path: 'rates',
+    component: RatesComponent
   },
   {path: '**', redirectTo: '/404'}
 ];

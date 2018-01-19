@@ -29,6 +29,11 @@ import { ServicesComponent } from './components/services/services.component';
 import { AffiliateProgramComponent } from './components/affiliate-program/affiliate-program.component';
 import { ShopsComponent } from './components/shops/shops.component';
 import { CalculatorModule } from "./components/orders/calculator/calculator.module";
+import { FaqComponent } from './components/faq/faq.component';
+import { RatesComponent } from './components/rates/rates.component';
+
+import { FormsModule } from '@angular/forms';
+import { HighlightPipe } from "./pipes/highlight.pipe";
 
 @NgModule({
   declarations: [
@@ -37,8 +42,12 @@ import { CalculatorModule } from "./components/orders/calculator/calculator.modu
     NotFoundComponent,
     ServicesComponent,
     AffiliateProgramComponent,
-    ShopsComponent
+    ShopsComponent,
+    FaqComponent,
+    RatesComponent,
+    HighlightPipe
   ],
+  exports: [HighlightPipe],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -46,6 +55,7 @@ import { CalculatorModule } from "./components/orders/calculator/calculator.modu
     FooterModule,
     RouterModule,
     NavModule,
+    FormsModule,
     StoreModule.forRoot('contacts', contacts),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({

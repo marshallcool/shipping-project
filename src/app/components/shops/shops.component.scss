@@ -114,6 +114,7 @@
           color: #ff9a82;
           font-size: 54px;
           font-weight: bold;
+          font-family: intro, sans-serif;
         }
         &__text {
           font-size: 18px;
@@ -212,7 +213,7 @@
   }
   &__title {
     font-size: 30px;
-    font-family: intro;
+    font-family: intro, sans-serif;
     color: #454260;
     text-align: center;
     a {
@@ -273,4 +274,7 @@
 }
 .bold {
   font-family: open-sans-bold;
+}
+a {
+  color: #f76451;
 }
