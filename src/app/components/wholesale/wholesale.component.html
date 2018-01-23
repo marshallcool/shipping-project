@@ -1,0 +1,76 @@
+<div class="internal-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="internal-page__name">оптовые закупки</h1>
+      </div>
+      <div class="col-12">
+        <div class="loading">
+          <mat-progress-spinner
+            class="example-margin"
+            mode="indeterminate"
+            *ngIf="loading">
+          </mat-progress-spinner>
+        </div>
+        <p-tabView class="wholesale-tabs" (onChange)="handleChange($event)">
+          <p-tabPanel [hidden]="loading" header="женское">
+            <div class="wholesale-container" *ngFor="let whole of wholesaleFemale" fxLayout="row" fxLayoutAlign="space-between start">
+              <div fxFlex="45%">
+                <img class="wholesale__img" src={{whole.pic}} alt="">
+              </div>
+              <div fxFlex="40%">
+                <p class="wholesale__title">{{whole.title}}</p>
+                <p class="wholesale__desc">{{whole.desc}}</p>
+                <div [innerHTML]="whole.content | safeHtml"></div>
+                <button mat-button class="btn wholesale__btn">подать заявку</button>
+              </div>
+            </div>
+          </p-tabPanel>
+          <p-tabPanel [hidden]="loading" header="мужское">
+            <div class="wholesale-container" *ngFor="let whole of wholesaleMale" fxLayout="row" fxLayoutAlign="space-between start">
+              <div fxFlex="45%">
+                <img class="wholesale__img" src={{whole.pic}} alt="">
+              </div>
+              <div fxFlex="40%">
+                <p class="wholesale__title">{{whole.title}}</p>
+                <p class="wholesale__desc">{{whole.desc}}</p>
+                <div [innerHTML]="whole.content | safeHtml"></div>
+                <button mat-button class="btn wholesale__btn">подать заявку</button>
+              </div>
+            </div>
+          </p-tabPanel>
+          <p-tabPanel [hidden]="loading" header="детское">
+            <div class="wholesale-container" *ngFor="let whole of wholesaleChildrens" fxLayout="row" fxLayoutAlign="space-between start">
+              <div fxFlex="45%">
+                <img class="wholesale__img" src={{whole.pic}} alt="">
+              </div>
+              <div fxFlex="40%">
+                <p class="wholesale__title">{{whole.title}}</p>
+                <p class="wholesale__desc">{{whole.desc}}</p>
+                <div [innerHTML]="whole.content | safeHtml"></div>
+                <button mat-button class="btn wholesale__btn">подать заявку</button>
+              </div>
+            </div>
+          </p-tabPanel>
+          <p-tabPanel [hidden]="loading" header="все">
+            <div class="wholesale-container" *ngFor="let whole of wholesaleAll" fxLayout="row" fxLayoutAlign="space-between start">
+              <div fxFlex="45%">
+                <img class="wholesale__img" src={{whole.pic}} alt="">
+              </div>
+              <div fxFlex="40%">
+                <p class="wholesale__title">{{whole.title}}</p>
+                <p class="wholesale__desc">{{whole.desc}}</p>
+                <div [innerHTML]="whole.content | safeHtml"></div>
+                <button mat-button class="btn wholesale__btn">подать заявку</button>
+              </div>
+            </div>
+          </p-tabPanel>
+        </p-tabView>
+      </div>
+    </div>
+  </div>
+</div>
+<ul>
+  <li *ngFor="let book of books$ | async">{{book.theme}}</li>
+</ul>
+<app-footer></app-footer>

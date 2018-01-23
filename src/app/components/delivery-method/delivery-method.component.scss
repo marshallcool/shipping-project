@@ -1,0 +1,47 @@
+.internal-page__name {
+  font-size: 3.75rem;
+  color: #a0a0a0;
+  text-transform: uppercase;
+  font-family: intro, sans-serif;
+  margin-top: 27px;
+}
+.delivery-method {
+
+  &__text {
+    font-family: open-sans-light, sans-serif;
+  }
+
+  &-container {
+    &__title {
+      color: #f76451;
+      font-size: 30px;
+      font-family: intro, sans-serif;
+      margin-top: 25px;
+    }
+  }
+
+  &-list {
+
+    &-item {
+      border-top: 2px solid #d0d0d0;
+      padding: 25px 0;
+      &__content {
+        margin: 0;
+      }
+      &__title {
+        color: #44415f;
+        font-family: intro, sans-serif;
+        font-size: 18px;
+      }
+    }
+  }
+}
+ul {
+  list-style-type: disc;
+  padding-top: 15px;
+  padding-left: 22px;
+  margin-bottom: 33px;
+}
+a {
+  color: #f76451;
+}
