@@ -300,3 +300,14 @@ strong {
   font-family: intro, sans-serif;
   font-size: 18px;
 }
+.wholesale-tabs ul.ui-tabview-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all a {
+  text-transform: uppercase !important;
+  border-bottom: none;
+}
+.wholesale-tabs .ui-state-default a {
+  color: #323044 !important;
+  font-family: intro, sans-serif;
+}
+.wholesale-tabs li.ui-state-default.ui-corner-top.ui-tabview-selected.ui-state-active a {
+  color: #ff6656 !important;
+}

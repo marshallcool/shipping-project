@@ -8,6 +8,7 @@ import { AffiliateProgramComponent } from "./components/affiliate-program/affili
 import { ShopsComponent } from "./components/shops/shops.component";
 import { FaqComponent } from "./components/faq/faq.component";
 import { RatesComponent } from "./components/rates/rates.component";
+import { DeliveryMethodComponent } from "./components/delivery-method/delivery-method.component";
 
 const routes: Routes = [
   {
@@ -71,6 +72,14 @@ const routes: Routes = [
   {
     path: 'rates',
     component: RatesComponent
+  },
+  {
+    path: 'delivery_method',
+    component: DeliveryMethodComponent
+  },
+  {
+    path: 'wholesale',
+    loadChildren: './components/wholesale/wholesale.module#WholesaleModule'
   },
   {path: '**', redirectTo: '/404'}
 ];

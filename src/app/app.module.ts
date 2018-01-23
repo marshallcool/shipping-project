@@ -21,19 +21,35 @@ export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
-import { StoreModule } from '@ngrx/store';
+import { StoreModule, ActionReducer, MetaReducer } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { contacts } from './components/contact/reducers/contact.reducer';
+import { reducers } from './components/wholesale/reducers/index';
 import { ServicesComponent } from './components/services/services.component';
 import { AffiliateProgramComponent } from './components/affiliate-program/affiliate-program.component';
 import { ShopsComponent } from './components/shops/shops.component';
-import { CalculatorModule } from "./components/orders/calculator/calculator.module";
+import { CalculatorModule } from './components/orders/calculator/calculator.module';
 import { FaqComponent } from './components/faq/faq.component';
 import { RatesComponent } from './components/rates/rates.component';
 
 import { FormsModule } from '@angular/forms';
-import { HighlightPipe } from "./pipes/highlight.pipe";
+import { HighlightPipe } from './pipes/highlight.pipe';
+import { DeliveryMethodComponent } from './components/delivery-method/delivery-method.component';
+
+import { reducer } from './reducers/index';
+import { environment } from '../environments/environment';
+
+export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
+  return function(state, action) {
+    console.log('state', state);
+    console.log('action', action);
+
+    return reducer(state, action);
+  };
+}
+
+export const metaReducers: MetaReducer<any>[] = !environment.production ? [debug] : [];
 
 @NgModule({
   declarations: [
@@ -45,7 +61,8 @@ import { HighlightPipe } from "./pipes/highlight.pipe";
     ShopsComponent,
     FaqComponent,
     RatesComponent,
-    HighlightPipe
+    HighlightPipe,
+    DeliveryMethodComponent
   ],
   exports: [HighlightPipe],
   imports: [
@@ -56,7 +73,7 @@ import { HighlightPipe } from "./pipes/highlight.pipe";
     RouterModule,
     NavModule,
     FormsModule,
-    StoreModule.forRoot('contacts', contacts),
+    StoreModule.forRoot(reducer, { metaReducers }),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       maxAge: 25

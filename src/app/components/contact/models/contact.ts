@@ -3,5 +3,9 @@ export interface Contact {
   name: string;
   email: string;
   message: string;
-  themes: Object;
+  subject_id: Themes;
 }
+ export interface Themes {
+   id: string;
+   theme: string;
+ }

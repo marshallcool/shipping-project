@@ -14,11 +14,11 @@ export class FilterPipe implements PipeTransform {
     searchText = searchText.toLowerCase();
     return items.filter((item) => {
       for (let property in item) {
-        if (item[property] === null) {
-          continue;
-        }
-        if (item[property].toString().toLowerCase().includes(searchText)) {
-          return true;
+        const value = item[property];
+        if ((value && typeof value === 'string') || typeof value === 'number') {
+          if (value.toString().toLowerCase().includes(searchText)) {
+            return true;
+          }
         }
       }
       return false;

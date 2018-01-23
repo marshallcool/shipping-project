@@ -20,7 +20,7 @@
 <div class="myorders-adress-active hide-mobile">
     <div class="myorders-adress-active-title">
         <div *ngFor="let count of country; let i = index">
-            <a (click)="toogleService(i, count)" class="myorders-adress-active__link" [ngClass]="{'myorders-adress-active__link active':serviceIdx == i}">{{ count.name }}</a>
+            <a (click)="toogleService(i, count)" class="myorders-adress-active__link" [ngClass]="{'active':serviceIdx == i}">{{ count.name }}</a>
         </div>
     </div>
     <div class="myorders-adress-active-info">

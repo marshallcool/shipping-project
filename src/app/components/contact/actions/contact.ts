@@ -1,4 +1,4 @@
-import { Contact } from './../models/contact';
+import { Contact, Themes } from './../models/contact';
 import { Action } from '@ngrx/store';
 
 export enum ContactActionTypes {
@@ -16,13 +16,13 @@ export enum ContactActionTypes {
 export class AddContact implements Action {
     readonly type = ContactActionTypes.AddContact;
 
-    constructor(public payload: any) {}
+    constructor(public payload: Contact) {}
 }
 
 export class AddContactSuccess implements Action {
     readonly type = ContactActionTypes.AddContactSuccess;
 
-    constructor(public payload: any) {}
+    constructor(public payload: Contact) {}
 }
 
 export class AddContactError implements Action {
@@ -42,7 +42,7 @@ export class GetContact implements Action {
 export class GetContactSuccess implements Action {
     readonly type = ContactActionTypes.GetContactSuccess;
 
-    constructor(public payload: Contact[]) {}
+    constructor(public payload: Themes[]) {}
 }
 
 export class GetContactError implements Action {

@@ -5,7 +5,7 @@ import { map, catchError } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment';
 import { ApiErrorHandlerService } from '../../services/api-error-handler.service';
-import { Contact } from './models/contact';
+import { Contact, Themes } from './models/contact';
 
 const apiHost = environment.api;
 
@@ -15,9 +15,9 @@ export class ContactService {
   constructor(private http: HttpClient,
               private apiErrorHandleService: ApiErrorHandlerService) { }
 
-  getThemes(): Observable<Contact[]> {
+  getThemes(): Observable<Themes[]> {
     return this.http
-      .get<Contact[]>(`${apiHost}/back/support/subjects`)
+      .get<Themes[]>(`${apiHost}/back/support/subjects`)
         .pipe(
           catchError((error) => {
               this.apiErrorHandleService.handle(error);

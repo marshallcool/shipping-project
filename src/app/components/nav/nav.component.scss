@@ -4,26 +4,12 @@
     display: block;
   }
 }
-//.container {
-//  @media screen and (max-width: 768px) {
-//    width: 1200px !important;
-//    margin: 0;
-//    max-width: 100%;
-//    padding-right: 15px;
-//    padding-left: 15px;
-//  }
-//}
 .hidden {
   @media (max-width: 768px) {
     display: none;
   }
 }
 .navbar {
-  //@media (max-width: 768px) {
-  //  display: flex;
-  //  flex-direction: row-reverse;
-  //  align-items: center;
-  //}
   @media (max-width: 400px) {
     height: 77px !important;
   }
@@ -106,5 +92,5 @@ nav {
   }
 }
 a:focus {
-  color: #a1a1a1 !important;
+  // color: #a1a1a1 !important;
 }

@@ -5,7 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { StorageService } from './storage.service';
 import { ApiErrorHandlerService } from './api-error-handler.service';
 import { TokenInterceptor } from './token.interceptor';
-
+import { SafeHtmlPipe } from '../pipes/html.pipe';
 
 @NgModule({
   imports: [
@@ -22,6 +22,8 @@ import { TokenInterceptor } from './token.interceptor';
       useClass: TokenInterceptor,
       multi: true
     }
-  ]
+  ],
+  declarations: [SafeHtmlPipe],
+  exports: [SafeHtmlPipe]
 })
 export class CoreModule { }

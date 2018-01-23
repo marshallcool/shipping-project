@@ -27,7 +27,6 @@ import { CoreModule } from '../../services/core.module';
 import { MessagesPrivateComponent } from './messages-private/messages-private.component';
 import { MessagePageComponent } from './message-page/message-page.component';
 import { MessagePageInputComponent } from './message-page/message-page-input/message-page-input.component';
-import { SafeHtmlPipe } from '../../pipes/html.pipe';
 
 @NgModule({
   imports: [
@@ -60,7 +59,6 @@ import { SafeHtmlPipe } from '../../pipes/html.pipe';
     MessagesPrivateComponent,
     MessagePageComponent,
     MessagePageInputComponent,
-    SafeHtmlPipe
   ],
   providers: [
     MessagesService,
